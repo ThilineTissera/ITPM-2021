@@ -340,6 +340,7 @@ public class Tags extends javax.swing.JInternalFrame {
             }
             
             refresh();
+            
             viewDetails();
             
        }
