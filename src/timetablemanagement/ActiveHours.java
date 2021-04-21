@@ -48,9 +48,9 @@ public class ActiveHours extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        Add_btn = new javax.swing.JButton();
         Clear_btn = new javax.swing.JButton();
         Update_btn = new javax.swing.JButton();
-        Add_btn = new javax.swing.JButton();
         Delt_btn = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -103,6 +103,13 @@ public class ActiveHours extends javax.swing.JInternalFrame {
         Back_btn = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
 
+        Add_btn.setText("Add");
+        Add_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Add_btnActionPerformed(evt);
+            }
+        });
+
         Clear_btn.setText("Clear");
         Clear_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,13 +121,6 @@ public class ActiveHours extends javax.swing.JInternalFrame {
         Update_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Update_btnActionPerformed(evt);
-            }
-        });
-
-        Add_btn.setText("Add");
-        Add_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Add_btnActionPerformed(evt);
             }
         });
 
@@ -136,12 +136,13 @@ public class ActiveHours extends javax.swing.JInternalFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(0, 98, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Clear_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Add_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Update_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Delt_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Add_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Clear_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Update_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Delt_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,9 +152,9 @@ public class ActiveHours extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(Update_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Clear_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(Delt_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Clear_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -184,13 +185,15 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EmpId_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LecName_lb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(EmpId_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addComponent(LecName_lb, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,10 +269,11 @@ public class ActiveHours extends javax.swing.JInternalFrame {
                 .addComponent(thursday_cb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(friday_cb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
                 .addComponent(saturday_cb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(sunday_cb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(sunday_cb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jLabel12.setText("From");
@@ -352,7 +356,7 @@ public class ActiveHours extends javax.swing.JInternalFrame {
                         .addComponent(TueF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addComponent(MonF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel9)
@@ -378,30 +382,31 @@ public class ActiveHours extends javax.swing.JInternalFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(MonF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TueF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(WedF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ThuF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FriF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SatF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SunF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)))
+                    .addComponent(jLabel9))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         MonT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
@@ -437,27 +442,28 @@ public class ActiveHours extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel11)
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel13)
                             .addComponent(jLabel15)
+                            .addComponent(jLabel16)
                             .addComponent(jLabel17)
                             .addComponent(jLabel10)
-                            .addComponent(jLabel14))
-                        .addGap(46, 46, 46)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ThuT, 0, 78, Short.MAX_VALUE)
-                            .addComponent(WedT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TueT, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SunT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SatT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel14)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(FriT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SatT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SunT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ThuT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(WedT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TueT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(MonT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,30 +472,31 @@ public class ActiveHours extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MonT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TueT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(WedT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ThuT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FriT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SatT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SunT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)))
+                    .addComponent(jLabel17))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -497,17 +504,17 @@ public class ActiveHours extends javax.swing.JInternalFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(28, 28, 28)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(34, 34, 34)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(31, 31, 31)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -553,27 +560,17 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             }
         });
 
-        Back_btn.setText("Back");
-        Back_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Back_btnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(search_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1058, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap(712, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(search_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -582,30 +579,37 @@ public class ActiveHours extends javax.swing.JInternalFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(search_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(Back_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
-        jLabel18.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(51, 51, 51));
+        Back_btn.setText("Back");
+        Back_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back_btnActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel18.setText("Active Hours Management");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
                 .addComponent(jLabel18)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(124, 124, 124))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -613,9 +617,11 @@ public class ActiveHours extends javax.swing.JInternalFrame {
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -625,7 +631,7 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -635,1883 +641,182 @@ public class ActiveHours extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_btnActionPerformed
-        HomeDesktop.removeAll();
-        Lecturer lc = new Lecturer();
-        HomeDesktop.add(lc).setVisible(true);
-        lc.setSize(HomeDesktop.getWidth(), HomeDesktop.getHeight());
-    }//GEN-LAST:event_Back_btnActionPerformed
-
-    private void search_tfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_tfKeyReleased
+    private void EmpId_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpId_tfActionPerformed
         // TODO add your handling code here:
-        String searchrs = search_tf.getText().toString();
+    }//GEN-LAST:event_EmpId_tfActionPerformed
 
-        if (searchrs.equalsIgnoreCase(""))
+    private void Clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Clear_btnActionPerformed
+        // TODO add your handling code here:
+        
+        Refresh();
+        LoadTable();
+    }//GEN-LAST:event_Clear_btnActionPerformed
+
+    private void Update_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update_btnActionPerformed
+        
+        String mon = "";
+        String tue = "";
+        String wed = "";
+        String thu = "";
+        String fri = "";
+        String sat = "";
+        String sun = "";
+        
+        String Emp = EmpId_tf.getText().toString();
+        
+        
+        
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        int row = jTable1.getSelectedRow();
+
+        
+       
+        if (row != -1)           
         {
-            LoadTable();
+            if(validateFields()){ 
+        
+            int confirm = JOptionPane.showConfirmDialog(null, "Do you want to Update?", "Update", JOptionPane.YES_NO_OPTION); 
+            if (confirm == 0) 
+            {
+                if(monday_cb.getState())
+                {   
+                    
+                    mon = SaveTime( MonF.getSelectedItem().toString(), MonT.getSelectedItem().toString());                    
+
+                }else{
+                    
+                     mon="--";
+                     }
+                
+                
+                if(tuesday_cb1.getState())
+                {
+                    
+                     tue = SaveTime( TueF.getSelectedItem().toString(), TueT.getSelectedItem().toString());
+                     
+                  
+                }else{
+                     tue="--";
+                     }
+
+                if(wednesday_cb1.getState())
+                {
+                    
+                     wed = SaveTime( WedF.getSelectedItem().toString(), WedT.getSelectedItem().toString());
+                    
+                }else{
+                     wed="--";
+                     }
+
+                if(thursday_cb1.getState())
+                {
+                     thu = SaveTime( ThuF.getSelectedItem().toString(), ThuT.getSelectedItem().toString());
+                     
+                }else{
+                     thu="--";
+                     }
+
+                if(friday_cb1.getState())
+                {
+                     fri = SaveTime( FriF.getSelectedItem().toString(), FriT.getSelectedItem().toString());
+                     
+                }else{
+                     fri="--";
+                     }
+
+                if(saturday_cb1.getState())
+                {
+                    sat = SaveTime( SatF.getSelectedItem().toString(), SatT.getSelectedItem().toString());
+                    
+                }else{
+                     sat="--";
+                     }
+
+                if(sunday_cb1.getState())
+                {
+                    sun = SaveTime( SunF.getSelectedItem().toString(), SunT.getSelectedItem().toString());
+
+                }else{
+                     sun="--";
+                     }
+
+                if(Emp == "")
+                {
+                    JOptionPane.showMessageDialog(null, "Please Enter Employee ID");
+                }
+                
+                else
+                {       
+                        try
+                        {
+                            
+                            
+                             
+                          DataBase.setData("UPDATE activehours set Monday = '"+mon+"', Tuesday = '"+tue+"', wednesday = '"+wed+"', thursday = '"+thu+"', friday = '"+fri+"', saturday = '"+sat+"', sunday = '"+sun+"' where empID = '"+Emp+"' ");
+                          JOptionPane.showMessageDialog(null, " Successfully Updated");
+                            
+                          
+                            
+                            
+                        }
+                        catch (Exception e)
+                        {
+                                  JOptionPane.showMessageDialog(null, "Failed" + e);
+                        }
+                      
+                      LoadTable();
+                      Refresh();
+                }
+            }
+           
+        }
+      } else
+            {
+                JOptionPane.showMessageDialog(null, "Please Select a Row from the table to Update");
+            }
+    }//GEN-LAST:event_Update_btnActionPerformed
+
+    private void Delt_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delt_btnActionPerformed
+        
+        String Emp = EmpId_tf.getText();
+        
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        int row = jTable1.getSelectedRow();
+ 
+        if (row != -1) 
+        {
+        
+            int confirm = JOptionPane.showConfirmDialog(null, "Do you want to delete?", "Delete", JOptionPane.YES_NO_OPTION); 
+            if (confirm == 0) 
+            {
+                try
+                {
+                  DataBase.setData("DELETE FROM activehours WHERE empid = '"+Emp+"'");
+                  JOptionPane.showMessageDialog(null, "Successfully Deleted");
+
+                }
+                catch (Exception e)
+                {
+                          JOptionPane.showMessageDialog(null, "Failed" + e);
+                }
+              Refresh();
+              LoadTable();
+            }
         }
         else
         {
-            DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
-            dtm.setRowCount(0);
-
-            try
-            {
-
-                ResultSet rs  = DataBase.getData("Select EmpID, Lecturer_name, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday from activehours where EmpID Like '"+searchrs+"%' OR lecturer_name Like '"+searchrs+"%' ");
-
-                while (rs.next())
-                {
-
-                    Vector v = new Vector();
-
-                    v.add(rs.getString(1));
-                    v.add(rs.getString(2));
-                    v.add(rs.getString(3));
-                    v.add(rs.getString(4));
-                    v.add(rs.getString(5));
-                    v.add(rs.getString(6));
-                    v.add(rs.getString(7));
-                    v.add(rs.getString(8));
-                    v.add(rs.getString(9));
-
-                    dtm.addRow(v);
-
-                }
-
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, e);
-            }
+             JOptionPane.showMessageDialog(null, "Please Select a Row for Delete");
         }
-
-    }//GEN-LAST:event_search_tfKeyReleased
+    }//GEN-LAST:event_Delt_btnActionPerformed
 
     private void search_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_tfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_search_tfActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-
-        EmpId_tf.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
-
-        LecName_lb.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
-
-        List <String[]>datelist=new ArrayList<String[]>();
-        for(int i=2;i<9;i++)
-        {
-            datelist.add(GetTimeArray(jTable1.getValueAt(jTable1.getSelectedRow(), i).toString()));
-        }
-
-        MonF.setSelectedItem(datelist.get(0)[0]);
-        MonT.setSelectedItem(datelist.get(0)[1]);
-        monday_cb.setState("Select".equalsIgnoreCase(datelist.get(0)[0])?false:true);
-
-        TueF.setSelectedItem(datelist.get(1)[0]);
-        TueT.setSelectedItem(datelist.get(1)[1]);
-        tuesday_cb1.setState("Select".equalsIgnoreCase(datelist.get(1)[0])?false:true);
-
-        WedF.setSelectedItem(datelist.get(2)[0]);
-        WedT.setSelectedItem(datelist.get(2)[1]);
-        wednesday_cb1.setState("Select".equalsIgnoreCase(datelist.get(2)[0])?false:true);
-
-        ThuF.setSelectedItem(datelist.get(3)[0]);
-        ThuT.setSelectedItem(datelist.get(3)[1]);
-        thursday_cb1.setState("Select".equalsIgnoreCase(datelist.get(3)[0])?false:true);
-
-        FriF.setSelectedItem(datelist.get(4)[0]);
-        FriT.setSelectedItem(datelist.get(4)[1]);
-        friday_cb1.setState("Select".equalsIgnoreCase(datelist.get(4)[0])?false:true);
-
-        SatF.setSelectedItem(datelist.get(5)[0]);
-        SatT.setSelectedItem(datelist.get(5)[1]);
-        saturday_cb1.setState("Select".equalsIgnoreCase(datelist.get(5)[0])?false:true);
-
-        SunF.setSelectedItem(datelist.get(6)[0]);
-        SunT.setSelectedItem(datelist.get(6)[1]);
-        sunday_cb1.setState("Select".equalsIgnoreCase(datelist.get(6)[0])?false:true);
-
-    }//GEN-LAST:event_jTable1MouseClicked
-
-    private void SunFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SunFActionPerformed
-
-        if(SunF.getSelectedItem().equals("08.00AM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("08.30AM");
-            SunT.addItem("09.00AM");
-            SunT.addItem("09.30AM");
-            SunT.addItem("10.00AM");
-            SunT.addItem("10.30AM");
-            SunT.addItem("11.00AM");
-            SunT.addItem("11.30AM");
-            SunT.addItem("12.00PM");
-            SunT.addItem("12.30PM");
-            SunT.addItem("01.00PM");
-            SunT.addItem("01.30PM");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("08.30AM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("09.00AM");
-            SunT.addItem("09.30AM");
-            SunT.addItem("10.00AM");
-            SunT.addItem("10.30AM");
-            SunT.addItem("11.00AM");
-            SunT.addItem("11.30AM");
-            SunT.addItem("12.00PM");
-            SunT.addItem("12.30PM");
-            SunT.addItem("01.00PM");
-            SunT.addItem("01.30PM");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("09.00AM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("09.30AM");
-            SunT.addItem("10.00AM");
-            SunT.addItem("10.30AM");
-            SunT.addItem("11.00AM");
-            SunT.addItem("11.30AM");
-            SunT.addItem("12.00PM");
-            SunT.addItem("12.30PM");
-            SunT.addItem("01.00PM");
-            SunT.addItem("01.30PM");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("09.30AM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("10.00AM");
-            SunT.addItem("10.30AM");
-            SunT.addItem("11.00AM");
-            SunT.addItem("11.30AM");
-            SunT.addItem("12.00PM");
-            SunT.addItem("12.30PM");
-            SunT.addItem("01.00PM");
-            SunT.addItem("01.30PM");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("10.00AM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("10.30AM");
-            SunT.addItem("11.00AM");
-            SunT.addItem("11.30AM");
-            SunT.addItem("12.00PM");
-            SunT.addItem("12.30PM");
-            SunT.addItem("01.00PM");
-            SunT.addItem("01.30PM");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("10.30AM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("11.00AM");
-            SunT.addItem("11.30AM");
-            SunT.addItem("12.00PM");
-            SunT.addItem("12.30PM");
-            SunT.addItem("01.00PM");
-            SunT.addItem("01.30PM");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("11.00AM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("11.30AM");
-            SunT.addItem("12.00PM");
-            SunT.addItem("12.30PM");
-            SunT.addItem("01.00PM");
-            SunT.addItem("01.30PM");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("11.30AM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("12.00PM");
-            SunT.addItem("12.30PM");
-            SunT.addItem("01.00PM");
-            SunT.addItem("01.30PM");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("12.00PM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("12.30PM");
-            SunT.addItem("01.00PM");
-            SunT.addItem("01.30PM");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("12.30PM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("01.00PM");
-            SunT.addItem("01.30PM");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("01.00PM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("01.30PM");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("01.30PM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("02.00PM");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("02.00PM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("02.30PM");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("02.30PM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("03.00PM");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("03.00PM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("03.30PM");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("03.30PM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("04.00PM");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("04.00PM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("04.30PM");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("04.30PM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("05.00PM");
-            SunT.addItem("05.30PM");
-
-        }else if(SunF.getSelectedItem().equals("05.00PM")){
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-            SunT.addItem("05.30PM");
-
-        }else{
-
-            SunT.removeAllItems();
-            SunT.addItem("Select");
-
-        }
-
-    }//GEN-LAST:event_SunFActionPerformed
-
-    private void SatFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SatFActionPerformed
-
-        if(SatF.getSelectedItem().equals("08.00AM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("08.30AM");
-            SatT.addItem("09.00AM");
-            SatT.addItem("09.30AM");
-            SatT.addItem("10.00AM");
-            SatT.addItem("10.30AM");
-            SatT.addItem("11.00AM");
-            SatT.addItem("11.30AM");
-            SatT.addItem("12.00PM");
-            SatT.addItem("12.30PM");
-            SatT.addItem("01.00PM");
-            SatT.addItem("01.30PM");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("08.30AM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("09.00AM");
-            SatT.addItem("09.30AM");
-            SatT.addItem("10.00AM");
-            SatT.addItem("10.30AM");
-            SatT.addItem("11.00AM");
-            SatT.addItem("11.30AM");
-            SatT.addItem("12.00PM");
-            SatT.addItem("12.30PM");
-            SatT.addItem("01.00PM");
-            SatT.addItem("01.30PM");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("09.00AM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("09.30AM");
-            SatT.addItem("10.00AM");
-            SatT.addItem("10.30AM");
-            SatT.addItem("11.00AM");
-            SatT.addItem("11.30AM");
-            SatT.addItem("12.00PM");
-            SatT.addItem("12.30PM");
-            SatT.addItem("01.00PM");
-            SatT.addItem("01.30PM");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("09.30AM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("10.00AM");
-            SatT.addItem("10.30AM");
-            SatT.addItem("11.00AM");
-            SatT.addItem("11.30AM");
-            SatT.addItem("12.00PM");
-            SatT.addItem("12.30PM");
-            SatT.addItem("01.00PM");
-            SatT.addItem("01.30PM");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("10.00AM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("10.30AM");
-            SatT.addItem("11.00AM");
-            SatT.addItem("11.30AM");
-            SatT.addItem("12.00PM");
-            SatT.addItem("12.30PM");
-            SatT.addItem("01.00PM");
-            SatT.addItem("01.30PM");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("10.30AM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("11.00AM");
-            SatT.addItem("11.30AM");
-            SatT.addItem("12.00PM");
-            SatT.addItem("12.30PM");
-            SatT.addItem("01.00PM");
-            SatT.addItem("01.30PM");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("11.00AM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("11.30AM");
-            SatT.addItem("12.00PM");
-            SatT.addItem("12.30PM");
-            SatT.addItem("01.00PM");
-            SatT.addItem("01.30PM");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("11.30AM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("12.00PM");
-            SatT.addItem("12.30PM");
-            SatT.addItem("01.00PM");
-            SatT.addItem("01.30PM");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("12.00PM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("12.30PM");
-            SatT.addItem("01.00PM");
-            SatT.addItem("01.30PM");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("12.30PM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("01.00PM");
-            SatT.addItem("01.30PM");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("01.00PM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("01.30PM");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("01.30PM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("02.00PM");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("02.00PM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("02.30PM");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("02.30PM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("03.00PM");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("03.00PM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("03.30PM");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("03.30PM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("04.00PM");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("04.00PM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("04.30PM");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("04.30PM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("05.00PM");
-            SatT.addItem("05.30PM");
-
-        }else if(SatF.getSelectedItem().equals("05.00PM")){
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-            SatT.addItem("05.30PM");
-
-        }else{
-
-            SatT.removeAllItems();
-            SatT.addItem("Select");
-
-        }
-
-    }//GEN-LAST:event_SatFActionPerformed
-
-    private void FriFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FriFActionPerformed
-
-        if(FriF.getSelectedItem().equals("08.00AM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("08.30AM");
-            FriT.addItem("09.00AM");
-            FriT.addItem("09.30AM");
-            FriT.addItem("10.00AM");
-            FriT.addItem("10.30AM");
-            FriT.addItem("11.00AM");
-            FriT.addItem("11.30AM");
-            FriT.addItem("12.00PM");
-            FriT.addItem("12.30PM");
-            FriT.addItem("01.00PM");
-            FriT.addItem("01.30PM");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("08.30AM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("09.00AM");
-            FriT.addItem("09.30AM");
-            FriT.addItem("10.00AM");
-            FriT.addItem("10.30AM");
-            FriT.addItem("11.00AM");
-            FriT.addItem("11.30AM");
-            FriT.addItem("12.00PM");
-            FriT.addItem("12.30PM");
-            FriT.addItem("01.00PM");
-            FriT.addItem("01.30PM");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("09.00AM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("09.30AM");
-            FriT.addItem("10.00AM");
-            FriT.addItem("10.30AM");
-            FriT.addItem("11.00AM");
-            FriT.addItem("11.30AM");
-            FriT.addItem("12.00PM");
-            FriT.addItem("12.30PM");
-            FriT.addItem("01.00PM");
-            FriT.addItem("01.30PM");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("09.30AM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("10.00AM");
-            FriT.addItem("10.30AM");
-            FriT.addItem("11.00AM");
-            FriT.addItem("11.30AM");
-            FriT.addItem("12.00PM");
-            FriT.addItem("12.30PM");
-            FriT.addItem("01.00PM");
-            FriT.addItem("01.30PM");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("10.00AM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("10.30AM");
-            FriT.addItem("11.00AM");
-            FriT.addItem("11.30AM");
-            FriT.addItem("12.00PM");
-            FriT.addItem("12.30PM");
-            FriT.addItem("01.00PM");
-            FriT.addItem("01.30PM");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("10.30AM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("11.00AM");
-            FriT.addItem("11.30AM");
-            FriT.addItem("12.00PM");
-            FriT.addItem("12.30PM");
-            FriT.addItem("01.00PM");
-            FriT.addItem("01.30PM");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("11.00AM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("11.30AM");
-            FriT.addItem("12.00PM");
-            FriT.addItem("12.30PM");
-            FriT.addItem("01.00PM");
-            FriT.addItem("01.30PM");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("11.30AM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("12.00PM");
-            FriT.addItem("12.30PM");
-            FriT.addItem("01.00PM");
-            FriT.addItem("01.30PM");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("12.00PM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("12.30PM");
-            FriT.addItem("01.00PM");
-            FriT.addItem("01.30PM");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("12.30PM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("01.00PM");
-            FriT.addItem("01.30PM");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("01.00PM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("01.30PM");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("01.30PM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("02.00PM");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("02.00PM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("02.30PM");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("02.30PM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("03.00PM");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("03.00PM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("03.30PM");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("03.30PM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("04.00PM");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("04.00PM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("04.30PM");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("04.30PM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("05.00PM");
-            FriT.addItem("05.30PM");
-
-        }else if(FriF.getSelectedItem().equals("05.00PM")){
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-            FriT.addItem("05.30PM");
-
-        }else{
-
-            FriT.removeAllItems();
-            FriT.addItem("Select");
-
-        }
-
-    }//GEN-LAST:event_FriFActionPerformed
-
-    private void ThuFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThuFActionPerformed
-
-        if(ThuF.getSelectedItem().equals("08.00AM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("08.30AM");
-            ThuT.addItem("09.00AM");
-            ThuT.addItem("09.30AM");
-            ThuT.addItem("10.00AM");
-            ThuT.addItem("10.30AM");
-            ThuT.addItem("11.00AM");
-            ThuT.addItem("11.30AM");
-            ThuT.addItem("12.00PM");
-            ThuT.addItem("12.30PM");
-            ThuT.addItem("01.00PM");
-            ThuT.addItem("01.30PM");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("08.30AM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("09.00AM");
-            ThuT.addItem("09.30AM");
-            ThuT.addItem("10.00AM");
-            ThuT.addItem("10.30AM");
-            ThuT.addItem("11.00AM");
-            ThuT.addItem("11.30AM");
-            ThuT.addItem("12.00PM");
-            ThuT.addItem("12.30PM");
-            ThuT.addItem("01.00PM");
-            ThuT.addItem("01.30PM");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("09.00AM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("09.30AM");
-            ThuT.addItem("10.00AM");
-            ThuT.addItem("10.30AM");
-            ThuT.addItem("11.00AM");
-            ThuT.addItem("11.30AM");
-            ThuT.addItem("12.00PM");
-            ThuT.addItem("12.30PM");
-            ThuT.addItem("01.00PM");
-            ThuT.addItem("01.30PM");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("09.30AM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("10.00AM");
-            ThuT.addItem("10.30AM");
-            ThuT.addItem("11.00AM");
-            ThuT.addItem("11.30AM");
-            ThuT.addItem("12.00PM");
-            ThuT.addItem("12.30PM");
-            ThuT.addItem("01.00PM");
-            ThuT.addItem("01.30PM");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("10.00AM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("10.30AM");
-            ThuT.addItem("11.00AM");
-            ThuT.addItem("11.30AM");
-            ThuT.addItem("12.00PM");
-            ThuT.addItem("12.30PM");
-            ThuT.addItem("01.00PM");
-            ThuT.addItem("01.30PM");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("10.30AM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("11.00AM");
-            ThuT.addItem("11.30AM");
-            ThuT.addItem("12.00PM");
-            ThuT.addItem("12.30PM");
-            ThuT.addItem("01.00PM");
-            ThuT.addItem("01.30PM");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("11.00AM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("11.30AM");
-            ThuT.addItem("12.00PM");
-            ThuT.addItem("12.30PM");
-            ThuT.addItem("01.00PM");
-            ThuT.addItem("01.30PM");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("11.30AM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("12.00PM");
-            ThuT.addItem("12.30PM");
-            ThuT.addItem("01.00PM");
-            ThuT.addItem("01.30PM");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("12.00PM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("12.30PM");
-            ThuT.addItem("01.00PM");
-            ThuT.addItem("01.30PM");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("12.30PM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("01.00PM");
-            ThuT.addItem("01.30PM");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("01.00PM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("01.30PM");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("01.30PM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("02.00PM");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("02.00PM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("02.30PM");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("02.30PM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("03.00PM");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("03.00PM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("03.30PM");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("03.30PM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("04.00PM");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("04.00PM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("04.30PM");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("04.30PM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("05.00PM");
-            ThuT.addItem("05.30PM");
-
-        }else if(ThuF.getSelectedItem().equals("05.00PM")){
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-            ThuT.addItem("05.30PM");
-
-        }else{
-
-            ThuT.removeAllItems();
-            ThuT.addItem("Select");
-
-        }
-    }//GEN-LAST:event_ThuFActionPerformed
-
-    private void WedFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WedFActionPerformed
-
-        if(WedF.getSelectedItem().equals("08.00AM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("08.30AM");
-            WedT.addItem("09.00AM");
-            WedT.addItem("09.30AM");
-            WedT.addItem("10.00AM");
-            WedT.addItem("10.30AM");
-            WedT.addItem("11.00AM");
-            WedT.addItem("11.30AM");
-            WedT.addItem("12.00PM");
-            WedT.addItem("12.30PM");
-            WedT.addItem("01.00PM");
-            WedT.addItem("01.30PM");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("08.30AM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("09.00AM");
-            WedT.addItem("09.30AM");
-            WedT.addItem("10.00AM");
-            WedT.addItem("10.30AM");
-            WedT.addItem("11.00AM");
-            WedT.addItem("11.30AM");
-            WedT.addItem("12.00PM");
-            WedT.addItem("12.30PM");
-            WedT.addItem("01.00PM");
-            WedT.addItem("01.30PM");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("09.00AM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("09.30AM");
-            WedT.addItem("10.00AM");
-            WedT.addItem("10.30AM");
-            WedT.addItem("11.00AM");
-            WedT.addItem("11.30AM");
-            WedT.addItem("12.00PM");
-            WedT.addItem("12.30PM");
-            WedT.addItem("01.00PM");
-            WedT.addItem("01.30PM");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("09.30AM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("10.00AM");
-            WedT.addItem("10.30AM");
-            WedT.addItem("11.00AM");
-            WedT.addItem("11.30AM");
-            WedT.addItem("12.00PM");
-            WedT.addItem("12.30PM");
-            WedT.addItem("01.00PM");
-            WedT.addItem("01.30PM");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("10.00AM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("10.30AM");
-            WedT.addItem("11.00AM");
-            WedT.addItem("11.30AM");
-            WedT.addItem("12.00PM");
-            WedT.addItem("12.30PM");
-            WedT.addItem("01.00PM");
-            WedT.addItem("01.30PM");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("10.30AM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("11.00AM");
-            WedT.addItem("11.30AM");
-            WedT.addItem("12.00PM");
-            WedT.addItem("12.30PM");
-            WedT.addItem("01.00PM");
-            WedT.addItem("01.30PM");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("11.00AM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("11.30AM");
-            WedT.addItem("12.00PM");
-            WedT.addItem("12.30PM");
-            WedT.addItem("01.00PM");
-            WedT.addItem("01.30PM");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("11.30AM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("12.00PM");
-            WedT.addItem("12.30PM");
-            WedT.addItem("01.00PM");
-            WedT.addItem("01.30PM");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("12.00PM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("12.30PM");
-            WedT.addItem("01.00PM");
-            WedT.addItem("01.30PM");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("12.30PM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("01.00PM");
-            WedT.addItem("01.30PM");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("01.00PM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("01.30PM");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("01.30PM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("02.00PM");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("02.00PM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("02.30PM");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("02.30PM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("03.00PM");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("03.00PM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("03.30PM");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("03.30PM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("04.00PM");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("04.00PM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("04.30PM");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("04.30PM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("05.00PM");
-            WedT.addItem("05.30PM");
-
-        }else if(WedF.getSelectedItem().equals("05.00PM")){
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-            WedT.addItem("05.30PM");
-
-        }else{
-
-            WedT.removeAllItems();
-            WedT.addItem("Select");
-
-        }
-    }//GEN-LAST:event_WedFActionPerformed
-
-    private void TueFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TueFActionPerformed
-
-        if(TueF.getSelectedItem().equals("08.00AM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("08.30AM");
-            TueT.addItem("09.00AM");
-            TueT.addItem("09.30AM");
-            TueT.addItem("10.00AM");
-            TueT.addItem("10.30AM");
-            TueT.addItem("11.00AM");
-            TueT.addItem("11.30AM");
-            TueT.addItem("12.00PM");
-            TueT.addItem("12.30PM");
-            TueT.addItem("01.00PM");
-            TueT.addItem("01.30PM");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("08.30AM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("09.00AM");
-            TueT.addItem("09.30AM");
-            TueT.addItem("10.00AM");
-            TueT.addItem("10.30AM");
-            TueT.addItem("11.00AM");
-            TueT.addItem("11.30AM");
-            TueT.addItem("12.00PM");
-            TueT.addItem("12.30PM");
-            TueT.addItem("01.00PM");
-            TueT.addItem("01.30PM");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("09.00AM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("09.30AM");
-            TueT.addItem("10.00AM");
-            TueT.addItem("10.30AM");
-            TueT.addItem("11.00AM");
-            TueT.addItem("11.30AM");
-            TueT.addItem("12.00PM");
-            TueT.addItem("12.30PM");
-            TueT.addItem("01.00PM");
-            TueT.addItem("01.30PM");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("09.30AM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("10.00AM");
-            TueT.addItem("10.30AM");
-            TueT.addItem("11.00AM");
-            TueT.addItem("11.30AM");
-            TueT.addItem("12.00PM");
-            TueT.addItem("12.30PM");
-            TueT.addItem("01.00PM");
-            TueT.addItem("01.30PM");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("10.00AM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("10.30AM");
-            TueT.addItem("11.00AM");
-            TueT.addItem("11.30AM");
-            TueT.addItem("12.00PM");
-            TueT.addItem("12.30PM");
-            TueT.addItem("01.00PM");
-            TueT.addItem("01.30PM");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("10.30AM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("11.00AM");
-            TueT.addItem("11.30AM");
-            TueT.addItem("12.00PM");
-            TueT.addItem("12.30PM");
-            TueT.addItem("01.00PM");
-            TueT.addItem("01.30PM");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("11.00AM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("11.30AM");
-            TueT.addItem("12.00PM");
-            TueT.addItem("12.30PM");
-            TueT.addItem("01.00PM");
-            TueT.addItem("01.30PM");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("11.30AM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("12.00PM");
-            TueT.addItem("12.30PM");
-            TueT.addItem("01.00PM");
-            TueT.addItem("01.30PM");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("12.00PM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("12.30PM");
-            TueT.addItem("01.00PM");
-            TueT.addItem("01.30PM");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("12.30PM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("01.00PM");
-            TueT.addItem("01.30PM");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("01.00PM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("01.30PM");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("01.30PM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("02.00PM");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("02.00PM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("02.30PM");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("02.30PM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("03.00PM");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("03.00PM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("03.30PM");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("03.30PM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("04.00PM");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("04.00PM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("04.30PM");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("04.30PM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("05.00PM");
-            TueT.addItem("05.30PM");
-
-        }else if(TueF.getSelectedItem().equals("05.00PM")){
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-            TueT.addItem("05.30PM");
-
-        }else{
-
-            TueT.removeAllItems();
-            TueT.addItem("Select");
-        }
-
-    }//GEN-LAST:event_TueFActionPerformed
-
     private void MonFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonFActionPerformed
-
-        if(MonF.getSelectedItem().equals("08.00AM")){
-
+        
+         if(MonF.getSelectedItem().equals("08.00AM")){
+        
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("08.30AM");
@@ -2532,10 +837,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("08.30AM")){
-
+            MonT.addItem("05.30PM");  
+            
+         }else if(MonF.getSelectedItem().equals("08.30AM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("09.00AM");
@@ -2555,10 +860,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("09.00AM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("09.00AM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("09.30AM");
@@ -2577,10 +882,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("09.30AM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("09.30AM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("10.00AM");
@@ -2598,10 +903,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("10.00AM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("10.00AM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("10.30AM");
@@ -2618,10 +923,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("10.30AM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("10.30AM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("11.00AM");
@@ -2637,10 +942,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("11.00AM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("11.00AM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("11.30AM");
@@ -2655,10 +960,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("11.30AM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("11.30AM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("12.00PM");
@@ -2672,10 +977,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("12.00PM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("12.00PM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("12.30PM");
@@ -2688,10 +993,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("12.30PM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("12.30PM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("01.00PM");
@@ -2703,10 +1008,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("01.00PM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("01.00PM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("01.30PM");
@@ -2717,10 +1022,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("01.30PM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("01.30PM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("02.00PM");
@@ -2730,10 +1035,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("02.00PM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("02.00PM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("02.30PM");
@@ -2742,10 +1047,10 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("02.30PM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("02.30PM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("03.00PM");
@@ -2753,366 +1058,2083 @@ public class ActiveHours extends javax.swing.JInternalFrame {
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("03.00PM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("03.00PM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("03.30PM");
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("03.30PM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("03.30PM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("04.00PM");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("04.00PM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("04.00PM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("04.30PM");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("04.30PM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("04.30PM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
             MonT.addItem("05.00PM");
-            MonT.addItem("05.30PM");
-
-        }else if(MonF.getSelectedItem().equals("05.00PM")){
-
+            MonT.addItem("05.30PM");  
+             
+         }else if(MonF.getSelectedItem().equals("05.00PM")){
+             
             MonT.removeAllItems();
             MonT.addItem("Select");
-            MonT.addItem("05.30PM");
-
-        }else{
-
+            MonT.addItem("05.30PM");  
+             
+         }else{
+         
             MonT.removeAllItems();
             MonT.addItem("Select");
-        }
+         }
     }//GEN-LAST:event_MonFActionPerformed
+
+    
+    private void Add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_btnActionPerformed
+     
+        String mon = "";
+        String tue = "";
+        String wed = "";
+        String thu = "";
+        String fri = "";
+        String sat = "";
+        String sun = "";
+        
+        String id = EmpId_tf.getText();
+        String lname = LecName_lb.getText();
+        
+        if(validateFields()){
+       
+        if(monday_cb.getState())
+        {   
+            
+            mon = SaveTime(MonF.getSelectedItem().toString(), MonT.getSelectedItem().toString());
+           
+        }else{
+            
+            mon="--";
+        }
+        
+        if(tuesday_cb1.getState())
+        {
+            
+            tue = SaveTime(TueF.getSelectedItem().toString(),TueT.getSelectedItem().toString());
+          
+        } else{
+            
+            tue="--";
+        }
+        
+        if(wednesday_cb1.getState())
+        {
+            wed = SaveTime(WedF.getSelectedItem().toString(), WedT.getSelectedItem().toString());
+           
+        } else{
+            
+            wed="--";
+        }
+        
+        if(thursday_cb1.getState())
+        {
+            thu = SaveTime(ThuF.getSelectedItem().toString(), ThuT.getSelectedItem().toString());
+            
+        }else{
+            thu="--";
+        }
+        
+        if(friday_cb1.getState())
+        {
+            fri = SaveTime(FriF.getSelectedItem().toString() , FriT.getSelectedItem().toString());
+            
+        }else{
+            
+            fri="--";
+        }
+        
+        if(saturday_cb1.getState())
+        {
+            sat = SaveTime(SatF.getSelectedItem().toString(), SatT.getSelectedItem().toString());
+           
+        }else{
+            
+            sat="--";
+        }
+        
+        if(sunday_cb1.getState())
+        {
+            sun = SaveTime(SunF.getSelectedItem().toString(), SunT.getSelectedItem().toString());
+            
+        }else{
+            
+            sun="--";
+        }
+        
+        
+        
+        if(id == "")
+        {
+            JOptionPane.showMessageDialog(null, "Please Enter Employee ID");
+        } 
+        else if(lname == "")
+        {
+            JOptionPane.showMessageDialog(null, "No such Employee registered");
+        } 
+        else
+        {
+            try
+            {   
+                DataBase.setData("insert into activehours (empid, lecturer_name, monday, tuesday, wednesday, thursday, friday, saturday, sunday) VALUES ('"+id+"', '"+lname+"', '"+mon+"', '"+tue+"', '"+wed+"', '"+thu+"', '"+fri+"', '"+sat+"', '"+sun+"')");
+                
+                JOptionPane.showMessageDialog(null, "Details Successfully Added");
+                Refresh();
+                
+            }
+            catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(null, "Failed" + e);
+            }
+            
+            LoadTable();
+          
+        }
+        
+        }
+               
+    }//GEN-LAST:event_Add_btnActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        
+        EmpId_tf.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+        
+        LecName_lb.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
+        
+        List <String[]>datelist=new ArrayList<String[]>();
+        for(int i=2;i<9;i++)
+        {
+            datelist.add(GetTimeArray(jTable1.getValueAt(jTable1.getSelectedRow(), i).toString()));
+        }
+        
+        MonF.setSelectedItem(datelist.get(0)[0]);
+        MonT.setSelectedItem(datelist.get(0)[1]);
+        monday_cb.setState("Select".equalsIgnoreCase(datelist.get(0)[0])?false:true);
+        
+        TueF.setSelectedItem(datelist.get(1)[0]);
+        TueT.setSelectedItem(datelist.get(1)[1]);
+        tuesday_cb1.setState("Select".equalsIgnoreCase(datelist.get(1)[0])?false:true);
+        
+        WedF.setSelectedItem(datelist.get(2)[0]);
+        WedT.setSelectedItem(datelist.get(2)[1]);
+        wednesday_cb1.setState("Select".equalsIgnoreCase(datelist.get(2)[0])?false:true); 
+        
+        ThuF.setSelectedItem(datelist.get(3)[0]);
+        ThuT.setSelectedItem(datelist.get(3)[1]);
+        thursday_cb1.setState("Select".equalsIgnoreCase(datelist.get(3)[0])?false:true);
+        
+        FriF.setSelectedItem(datelist.get(4)[0]);
+        FriT.setSelectedItem(datelist.get(4)[1]);
+        friday_cb1.setState("Select".equalsIgnoreCase(datelist.get(4)[0])?false:true);
+        
+        SatF.setSelectedItem(datelist.get(5)[0]);
+        SatT.setSelectedItem(datelist.get(5)[1]);
+        saturday_cb1.setState("Select".equalsIgnoreCase(datelist.get(5)[0])?false:true);
+        
+        SunF.setSelectedItem(datelist.get(6)[0]);
+        SunT.setSelectedItem(datelist.get(6)[1]);
+        sunday_cb1.setState("Select".equalsIgnoreCase(datelist.get(6)[0])?false:true);
+        
+        
+    }//GEN-LAST:event_jTable1MouseClicked
 
     private void tuesday_cb1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tuesday_cb1ItemStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_tuesday_cb1ItemStateChanged
 
-    private void EmpId_tfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EmpId_tfKeyTyped
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_EmpId_tfKeyTyped
+    private void Back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_btnActionPerformed
+       HomeDesktop.removeAll();
+       Lecturer lc = new Lecturer();
+       HomeDesktop.add(lc).setVisible(true);
+       lc.setSize(HomeDesktop.getWidth(), HomeDesktop.getHeight());
+    }//GEN-LAST:event_Back_btnActionPerformed
 
     private void EmpId_tfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EmpId_tfKeyReleased
 
         try{
             String id =EmpId_tf.getText();
-
+            
             if(id.length()< 6){
-
-                LecName_lb.setText("");
-
+                
+               LecName_lb.setText("");  
+            
             }
             if(id.length() == 6){
-
-                ResultSet rs = DataBase.getData("Select Lecturer_name from lecturer where EmpID Like '"+id+"%' ");
-
-                if(rs.next()){
-
-                    LecName_lb.setText(rs.getString("Lecturer_name"));
-
-                }else{
-
-                    JOptionPane.showMessageDialog(null, "No such Employee");
-                    LecName_lb.setText("");
-                }
-            }else if(id.length()> 6){
-
-                JOptionPane.showMessageDialog(null, "Invalid length for Employee ID");
-                LecName_lb.setText("");
+            
+            ResultSet rs = DataBase.getData("Select Lecturer_name from lecturer where EmpID Like '"+id+"%' ");
+             
+            
+            if(rs.next()){
+                
+            LecName_lb.setText(rs.getString("Lecturer_name"));
+            
+            }else{
+            
+                JOptionPane.showMessageDialog(null, "No such Employee");
+                 LecName_lb.setText(""); 
             }
-
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
+       }else if(id.length()> 6){
+       
+           JOptionPane.showMessageDialog(null, "Invalid length for Employee ID");
+            LecName_lb.setText("");
+       }
+       
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }  
     }//GEN-LAST:event_EmpId_tfKeyReleased
 
-    private void EmpId_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpId_tfActionPerformed
+    private void search_tfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_tfKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_EmpId_tfActionPerformed
-
-    private void Add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_btnActionPerformed
-
-        String mon = "";
-        String tue = "";
-        String wed = "";
-        String thu = "";
-        String fri = "";
-        String sat = "";
-        String sun = "";
-
-        String id = EmpId_tf.getText();
-        String lname = LecName_lb.getText();
-
-        if(validateFields()){
-
-            if(monday_cb.getState())
+          String searchrs = search_tf.getText().toString();
+        
+        if (searchrs.equalsIgnoreCase("")) 
             {
-
-                mon = SaveTime(MonF.getSelectedItem().toString(), MonT.getSelectedItem().toString());
-
-            }else{
-
-                mon="--";
-            }
-
-            if(tuesday_cb1.getState())
+                LoadTable();
+            } 
+            else 
             {
+                DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+                dtm.setRowCount(0);
 
-                tue = SaveTime(TueF.getSelectedItem().toString(),TueT.getSelectedItem().toString());
-
-            } else{
-
-                tue="--";
-            }
-
-            if(wednesday_cb1.getState())
-            {
-                wed = SaveTime(WedF.getSelectedItem().toString(), WedT.getSelectedItem().toString());
-
-            } else{
-
-                wed="--";
-            }
-
-            if(thursday_cb1.getState())
-            {
-                thu = SaveTime(ThuF.getSelectedItem().toString(), ThuT.getSelectedItem().toString());
-
-            }else{
-                thu="--";
-            }
-
-            if(friday_cb1.getState())
-            {
-                fri = SaveTime(FriF.getSelectedItem().toString() , FriT.getSelectedItem().toString());
-
-            }else{
-
-                fri="--";
-            }
-
-            if(saturday_cb1.getState())
-            {
-                sat = SaveTime(SatF.getSelectedItem().toString(), SatT.getSelectedItem().toString());
-
-            }else{
-
-                sat="--";
-            }
-
-            if(sunday_cb1.getState())
-            {
-                sun = SaveTime(SunF.getSelectedItem().toString(), SunT.getSelectedItem().toString());
-
-            }else{
-
-                sun="--";
-            }
-
-            if(id == "")
-            {
-                JOptionPane.showMessageDialog(null, "Please Enter Employee ID");
-            }
-            else if(lname == "")
-            {
-                JOptionPane.showMessageDialog(null, "No such Employee registered");
-            }
-            else
-            {
-                try
+                try 
                 {
-                    DataBase.setData("insert into activehours (empid, lecturer_name, monday, tuesday, wednesday, thursday, friday, saturday, sunday) VALUES ('"+id+"', '"+lname+"', '"+mon+"', '"+tue+"', '"+wed+"', '"+thu+"', '"+fri+"', '"+sat+"', '"+sun+"')");
 
-                    JOptionPane.showMessageDialog(null, "Details Successfully Added");
-                    Refresh();
+                    ResultSet rs  = DataBase.getData("Select EmpID, Lecturer_name, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday from activehours where EmpID Like '"+searchrs+"%' OR lecturer_name Like '"+searchrs+"%' ");
+                    
+                    while (rs.next()) 
+                    {
 
-                }
+                        Vector v = new Vector();
+
+                        v.add(rs.getString(1));
+                        v.add(rs.getString(2));  
+                        v.add(rs.getString(3));  
+                        v.add(rs.getString(4));
+                        v.add(rs.getString(5));  
+                        v.add(rs.getString(6));  
+                        v.add(rs.getString(7));  
+                        v.add(rs.getString(8));  
+                        v.add(rs.getString(9));  
+                        
+                        dtm.addRow(v);
+
+                    }
+
+                } 
                 catch (Exception e)
                 {
-                    JOptionPane.showMessageDialog(null, "Failed" + e);
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, e);
                 }
-
-                LoadTable();
-
             }
+        
+    }//GEN-LAST:event_search_tfKeyReleased
 
-        }
-
-    }//GEN-LAST:event_Add_btnActionPerformed
-
-    private void Delt_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delt_btnActionPerformed
-
-        String Emp = EmpId_tf.getText();
-
-        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
-        int row = jTable1.getSelectedRow();
-
-        if (row != -1)
-        {
-
-            int confirm = JOptionPane.showConfirmDialog(null, "Do you want to delete?", "Delete", JOptionPane.YES_NO_OPTION);
-            if (confirm == 0)
-            {
-                try
-                {
-                    DataBase.setData("DELETE FROM activehours WHERE empid = '"+Emp+"'");
-                    JOptionPane.showMessageDialog(null, "Successfully Deleted");
-
-                }
-                catch (Exception e)
-                {
-                    JOptionPane.showMessageDialog(null, "Failed" + e);
-                }
-                Refresh();
-                LoadTable();
-            }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Please Select a Row for Delete");
-        }
-    }//GEN-LAST:event_Delt_btnActionPerformed
-
-    private void Update_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update_btnActionPerformed
-
-        String mon = "";
-        String tue = "";
-        String wed = "";
-        String thu = "";
-        String fri = "";
-        String sat = "";
-        String sun = "";
-
-        String Emp = EmpId_tf.getText().toString();
-
-        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
-        int row = jTable1.getSelectedRow();
-
-        if (row != -1)
-        {
-            if(validateFields()){
-
-                int confirm = JOptionPane.showConfirmDialog(null, "Do you want to Update?", "Update", JOptionPane.YES_NO_OPTION);
-                if (confirm == 0)
-                {
-                    if(monday_cb.getState())
-                    {
-
-                        mon = SaveTime( MonF.getSelectedItem().toString(), MonT.getSelectedItem().toString());
-
-                    }else{
-
-                        mon="--";
-                    }
-
-                    if(tuesday_cb1.getState())
-                    {
-
-                        tue = SaveTime( TueF.getSelectedItem().toString(), TueT.getSelectedItem().toString());
-
-                    }else{
-                        tue="--";
-                    }
-
-                    if(wednesday_cb1.getState())
-                    {
-
-                        wed = SaveTime( WedF.getSelectedItem().toString(), WedT.getSelectedItem().toString());
-
-                    }else{
-                        wed="--";
-                    }
-
-                    if(thursday_cb1.getState())
-                    {
-                        thu = SaveTime( ThuF.getSelectedItem().toString(), ThuT.getSelectedItem().toString());
-
-                    }else{
-                        thu="--";
-                    }
-
-                    if(friday_cb1.getState())
-                    {
-                        fri = SaveTime( FriF.getSelectedItem().toString(), FriT.getSelectedItem().toString());
-
-                    }else{
-                        fri="--";
-                    }
-
-                    if(saturday_cb1.getState())
-                    {
-                        sat = SaveTime( SatF.getSelectedItem().toString(), SatT.getSelectedItem().toString());
-
-                    }else{
-                        sat="--";
-                    }
-
-                    if(sunday_cb1.getState())
-                    {
-                        sun = SaveTime( SunF.getSelectedItem().toString(), SunT.getSelectedItem().toString());
-
-                    }else{
-                        sun="--";
-                    }
-
-                    if(Emp == "")
-                    {
-                        JOptionPane.showMessageDialog(null, "Please Enter Employee ID");
-                    }
-
-                    else
-                    {
-                        try
-                        {
-
-                            DataBase.setData("UPDATE activehours set Monday = '"+mon+"', Tuesday = '"+tue+"', wednesday = '"+wed+"', thursday = '"+thu+"', friday = '"+fri+"', saturday = '"+sat+"', sunday = '"+sun+"' where empID = '"+Emp+"' ");
-                            JOptionPane.showMessageDialog(null, " Successfully Updated");
-
-                        }
-                        catch (Exception e)
-                        {
-                            JOptionPane.showMessageDialog(null, "Failed" + e);
-                        }
-
-                        LoadTable();
-                        Refresh();
-                    }
-                }
-
-            }
-        } else
-        {
-            JOptionPane.showMessageDialog(null, "Please Select a Row from the table to Update");
-        }
-    }//GEN-LAST:event_Update_btnActionPerformed
-
-    private void Clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Clear_btnActionPerformed
+    private void EmpId_tfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EmpId_tfKeyTyped
         // TODO add your handling code here:
 
-        Refresh();
-        LoadTable();
-    }//GEN-LAST:event_Clear_btnActionPerformed
+        
+    }//GEN-LAST:event_EmpId_tfKeyTyped
 
-    
+    private void WedFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WedFActionPerformed
+        
+         if(WedF.getSelectedItem().equals("08.00AM")){
+        
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("08.30AM");
+            WedT.addItem("09.00AM");
+            WedT.addItem("09.30AM");
+            WedT.addItem("10.00AM");
+            WedT.addItem("10.30AM");
+            WedT.addItem("11.00AM");
+            WedT.addItem("11.30AM");
+            WedT.addItem("12.00PM");
+            WedT.addItem("12.30PM");
+            WedT.addItem("01.00PM");
+            WedT.addItem("01.30PM");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("08.30AM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("09.00AM");
+            WedT.addItem("09.30AM");
+            WedT.addItem("10.00AM");
+            WedT.addItem("10.30AM");
+            WedT.addItem("11.00AM");
+            WedT.addItem("11.30AM");
+            WedT.addItem("12.00PM");
+            WedT.addItem("12.30PM");
+            WedT.addItem("01.00PM");
+            WedT.addItem("01.30PM");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("09.00AM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("09.30AM");
+            WedT.addItem("10.00AM");
+            WedT.addItem("10.30AM");
+            WedT.addItem("11.00AM");
+            WedT.addItem("11.30AM");
+            WedT.addItem("12.00PM");
+            WedT.addItem("12.30PM");
+            WedT.addItem("01.00PM");
+            WedT.addItem("01.30PM");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("09.30AM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("10.00AM");
+            WedT.addItem("10.30AM");
+            WedT.addItem("11.00AM");
+            WedT.addItem("11.30AM");
+            WedT.addItem("12.00PM");
+            WedT.addItem("12.30PM");
+            WedT.addItem("01.00PM");
+            WedT.addItem("01.30PM");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("10.00AM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("10.30AM");
+            WedT.addItem("11.00AM");
+            WedT.addItem("11.30AM");
+            WedT.addItem("12.00PM");
+            WedT.addItem("12.30PM");
+            WedT.addItem("01.00PM");
+            WedT.addItem("01.30PM");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("10.30AM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("11.00AM");
+            WedT.addItem("11.30AM");
+            WedT.addItem("12.00PM");
+            WedT.addItem("12.30PM");
+            WedT.addItem("01.00PM");
+            WedT.addItem("01.30PM");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("11.00AM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("11.30AM");
+            WedT.addItem("12.00PM");
+            WedT.addItem("12.30PM");
+            WedT.addItem("01.00PM");
+            WedT.addItem("01.30PM");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("11.30AM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("12.00PM");
+            WedT.addItem("12.30PM");
+            WedT.addItem("01.00PM");
+            WedT.addItem("01.30PM");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("12.00PM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("12.30PM");
+            WedT.addItem("01.00PM");
+            WedT.addItem("01.30PM");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("12.30PM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("01.00PM");
+            WedT.addItem("01.30PM");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("01.00PM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("01.30PM");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("01.30PM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("02.00PM");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("02.00PM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("02.30PM");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("02.30PM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("03.00PM");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("03.00PM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("03.30PM");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("03.30PM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("04.00PM");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("04.00PM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("04.30PM");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("04.30PM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("05.00PM");
+            WedT.addItem("05.30PM");  
+            
+         }else if(WedF.getSelectedItem().equals("05.00PM")){
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+            WedT.addItem("05.30PM");  
+            
+         }else{
+             
+            WedT.removeAllItems();
+            WedT.addItem("Select");
+         
+         }
+    }//GEN-LAST:event_WedFActionPerformed
+
+    private void TueFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TueFActionPerformed
+         
+        if(TueF.getSelectedItem().equals("08.00AM")){
+        
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("08.30AM");
+            TueT.addItem("09.00AM");
+            TueT.addItem("09.30AM");
+            TueT.addItem("10.00AM");
+            TueT.addItem("10.30AM");
+            TueT.addItem("11.00AM");
+            TueT.addItem("11.30AM");
+            TueT.addItem("12.00PM");
+            TueT.addItem("12.30PM");
+            TueT.addItem("01.00PM");
+            TueT.addItem("01.30PM");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+            
+         }else if(TueF.getSelectedItem().equals("08.30AM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("09.00AM");
+            TueT.addItem("09.30AM");
+            TueT.addItem("10.00AM");
+            TueT.addItem("10.30AM");
+            TueT.addItem("11.00AM");
+            TueT.addItem("11.30AM");
+            TueT.addItem("12.00PM");
+            TueT.addItem("12.30PM");
+            TueT.addItem("01.00PM");
+            TueT.addItem("01.30PM");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("09.00AM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("09.30AM");
+            TueT.addItem("10.00AM");
+            TueT.addItem("10.30AM");
+            TueT.addItem("11.00AM");
+            TueT.addItem("11.30AM");
+            TueT.addItem("12.00PM");
+            TueT.addItem("12.30PM");
+            TueT.addItem("01.00PM");
+            TueT.addItem("01.30PM");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("09.30AM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("10.00AM");
+            TueT.addItem("10.30AM");
+            TueT.addItem("11.00AM");
+            TueT.addItem("11.30AM");
+            TueT.addItem("12.00PM");
+            TueT.addItem("12.30PM");
+            TueT.addItem("01.00PM");
+            TueT.addItem("01.30PM");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("10.00AM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("10.30AM");
+            TueT.addItem("11.00AM");
+            TueT.addItem("11.30AM");
+            TueT.addItem("12.00PM");
+            TueT.addItem("12.30PM");
+            TueT.addItem("01.00PM");
+            TueT.addItem("01.30PM");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("10.30AM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("11.00AM");
+            TueT.addItem("11.30AM");
+            TueT.addItem("12.00PM");
+            TueT.addItem("12.30PM");
+            TueT.addItem("01.00PM");
+            TueT.addItem("01.30PM");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("11.00AM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("11.30AM");
+            TueT.addItem("12.00PM");
+            TueT.addItem("12.30PM");
+            TueT.addItem("01.00PM");
+            TueT.addItem("01.30PM");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("11.30AM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("12.00PM");
+            TueT.addItem("12.30PM");
+            TueT.addItem("01.00PM");
+            TueT.addItem("01.30PM");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("12.00PM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("12.30PM");
+            TueT.addItem("01.00PM");
+            TueT.addItem("01.30PM");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("12.30PM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("01.00PM");
+            TueT.addItem("01.30PM");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("01.00PM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("01.30PM");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("01.30PM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("02.00PM");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("02.00PM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("02.30PM");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("02.30PM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("03.00PM");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("03.00PM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("03.30PM");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("03.30PM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("04.00PM");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("04.00PM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("04.30PM");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("04.30PM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("05.00PM");
+            TueT.addItem("05.30PM");  
+             
+         }else if(TueF.getSelectedItem().equals("05.00PM")){
+             
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+            TueT.addItem("05.30PM");  
+             
+         }else{
+         
+            TueT.removeAllItems();
+            TueT.addItem("Select");
+         }
+              
+    }//GEN-LAST:event_TueFActionPerformed
+
+    private void ThuFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThuFActionPerformed
+        
+         if(ThuF.getSelectedItem().equals("08.00AM")){
+        
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("08.30AM");
+            ThuT.addItem("09.00AM");
+            ThuT.addItem("09.30AM");
+            ThuT.addItem("10.00AM");
+            ThuT.addItem("10.30AM");
+            ThuT.addItem("11.00AM");
+            ThuT.addItem("11.30AM");
+            ThuT.addItem("12.00PM");
+            ThuT.addItem("12.30PM");
+            ThuT.addItem("01.00PM");
+            ThuT.addItem("01.30PM");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("08.30AM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("09.00AM");
+            ThuT.addItem("09.30AM");
+            ThuT.addItem("10.00AM");
+            ThuT.addItem("10.30AM");
+            ThuT.addItem("11.00AM");
+            ThuT.addItem("11.30AM");
+            ThuT.addItem("12.00PM");
+            ThuT.addItem("12.30PM");
+            ThuT.addItem("01.00PM");
+            ThuT.addItem("01.30PM");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("09.00AM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("09.30AM");
+            ThuT.addItem("10.00AM");
+            ThuT.addItem("10.30AM");
+            ThuT.addItem("11.00AM");
+            ThuT.addItem("11.30AM");
+            ThuT.addItem("12.00PM");
+            ThuT.addItem("12.30PM");
+            ThuT.addItem("01.00PM");
+            ThuT.addItem("01.30PM");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("09.30AM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("10.00AM");
+            ThuT.addItem("10.30AM");
+            ThuT.addItem("11.00AM");
+            ThuT.addItem("11.30AM");
+            ThuT.addItem("12.00PM");
+            ThuT.addItem("12.30PM");
+            ThuT.addItem("01.00PM");
+            ThuT.addItem("01.30PM");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("10.00AM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("10.30AM");
+            ThuT.addItem("11.00AM");
+            ThuT.addItem("11.30AM");
+            ThuT.addItem("12.00PM");
+            ThuT.addItem("12.30PM");
+            ThuT.addItem("01.00PM");
+            ThuT.addItem("01.30PM");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("10.30AM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("11.00AM");
+            ThuT.addItem("11.30AM");
+            ThuT.addItem("12.00PM");
+            ThuT.addItem("12.30PM");
+            ThuT.addItem("01.00PM");
+            ThuT.addItem("01.30PM");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("11.00AM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("11.30AM");
+            ThuT.addItem("12.00PM");
+            ThuT.addItem("12.30PM");
+            ThuT.addItem("01.00PM");
+            ThuT.addItem("01.30PM");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("11.30AM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("12.00PM");
+            ThuT.addItem("12.30PM");
+            ThuT.addItem("01.00PM");
+            ThuT.addItem("01.30PM");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("12.00PM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("12.30PM");
+            ThuT.addItem("01.00PM");
+            ThuT.addItem("01.30PM");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("12.30PM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("01.00PM");
+            ThuT.addItem("01.30PM");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("01.00PM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("01.30PM");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("01.30PM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("02.00PM");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("02.00PM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("02.30PM");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("02.30PM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("03.00PM");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("03.00PM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("03.30PM");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("03.30PM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("04.00PM");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("04.00PM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("04.30PM");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("04.30PM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("05.00PM");
+            ThuT.addItem("05.30PM");  
+            
+         }else if(ThuF.getSelectedItem().equals("05.00PM")){
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+            ThuT.addItem("05.30PM");  
+            
+         }else{
+         
+            ThuT.removeAllItems();
+            ThuT.addItem("Select");
+         
+         }      
+    }//GEN-LAST:event_ThuFActionPerformed
+
+    private void FriFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FriFActionPerformed
+        
+         if(FriF.getSelectedItem().equals("08.00AM")){
+        
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("08.30AM");
+            FriT.addItem("09.00AM");
+            FriT.addItem("09.30AM");
+            FriT.addItem("10.00AM");
+            FriT.addItem("10.30AM");
+            FriT.addItem("11.00AM");
+            FriT.addItem("11.30AM");
+            FriT.addItem("12.00PM");
+            FriT.addItem("12.30PM");
+            FriT.addItem("01.00PM");
+            FriT.addItem("01.30PM");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+            
+         }else if(FriF.getSelectedItem().equals("08.30AM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("09.00AM");
+            FriT.addItem("09.30AM");
+            FriT.addItem("10.00AM");
+            FriT.addItem("10.30AM");
+            FriT.addItem("11.00AM");
+            FriT.addItem("11.30AM");
+            FriT.addItem("12.00PM");
+            FriT.addItem("12.30PM");
+            FriT.addItem("01.00PM");
+            FriT.addItem("01.30PM");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("09.00AM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("09.30AM");
+            FriT.addItem("10.00AM");
+            FriT.addItem("10.30AM");
+            FriT.addItem("11.00AM");
+            FriT.addItem("11.30AM");
+            FriT.addItem("12.00PM");
+            FriT.addItem("12.30PM");
+            FriT.addItem("01.00PM");
+            FriT.addItem("01.30PM");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("09.30AM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("10.00AM");
+            FriT.addItem("10.30AM");
+            FriT.addItem("11.00AM");
+            FriT.addItem("11.30AM");
+            FriT.addItem("12.00PM");
+            FriT.addItem("12.30PM");
+            FriT.addItem("01.00PM");
+            FriT.addItem("01.30PM");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("10.00AM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("10.30AM");
+            FriT.addItem("11.00AM");
+            FriT.addItem("11.30AM");
+            FriT.addItem("12.00PM");
+            FriT.addItem("12.30PM");
+            FriT.addItem("01.00PM");
+            FriT.addItem("01.30PM");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("10.30AM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("11.00AM");
+            FriT.addItem("11.30AM");
+            FriT.addItem("12.00PM");
+            FriT.addItem("12.30PM");
+            FriT.addItem("01.00PM");
+            FriT.addItem("01.30PM");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("11.00AM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("11.30AM");
+            FriT.addItem("12.00PM");
+            FriT.addItem("12.30PM");
+            FriT.addItem("01.00PM");
+            FriT.addItem("01.30PM");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("11.30AM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("12.00PM");
+            FriT.addItem("12.30PM");
+            FriT.addItem("01.00PM");
+            FriT.addItem("01.30PM");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("12.00PM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("12.30PM");
+            FriT.addItem("01.00PM");
+            FriT.addItem("01.30PM");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("12.30PM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("01.00PM");
+            FriT.addItem("01.30PM");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("01.00PM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("01.30PM");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("01.30PM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("02.00PM");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("02.00PM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("02.30PM");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("02.30PM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("03.00PM");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("03.00PM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("03.30PM");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("03.30PM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("04.00PM");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("04.00PM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("04.30PM");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("04.30PM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("05.00PM");
+            FriT.addItem("05.30PM");  
+         
+         }else if(FriF.getSelectedItem().equals("05.00PM")){
+         
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+            FriT.addItem("05.30PM");  
+         
+         }else{
+             
+            FriT.removeAllItems();
+            FriT.addItem("Select");
+         
+         }
+        
+    }//GEN-LAST:event_FriFActionPerformed
+
+    private void SatFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SatFActionPerformed
+       
+         if(SatF.getSelectedItem().equals("08.00AM")){
+        
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("08.30AM");
+            SatT.addItem("09.00AM");
+            SatT.addItem("09.30AM");
+            SatT.addItem("10.00AM");
+            SatT.addItem("10.30AM");
+            SatT.addItem("11.00AM");
+            SatT.addItem("11.30AM");
+            SatT.addItem("12.00PM");
+            SatT.addItem("12.30PM");
+            SatT.addItem("01.00PM");
+            SatT.addItem("01.30PM");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM");  
+            
+         }else if(SatF.getSelectedItem().equals("08.30AM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("09.00AM");
+            SatT.addItem("09.30AM");
+            SatT.addItem("10.00AM");
+            SatT.addItem("10.30AM");
+            SatT.addItem("11.00AM");
+            SatT.addItem("11.30AM");
+            SatT.addItem("12.00PM");
+            SatT.addItem("12.30PM");
+            SatT.addItem("01.00PM");
+            SatT.addItem("01.30PM");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("09.00AM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("09.30AM");
+            SatT.addItem("10.00AM");
+            SatT.addItem("10.30AM");
+            SatT.addItem("11.00AM");
+            SatT.addItem("11.30AM");
+            SatT.addItem("12.00PM");
+            SatT.addItem("12.30PM");
+            SatT.addItem("01.00PM");
+            SatT.addItem("01.30PM");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("09.30AM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("10.00AM");
+            SatT.addItem("10.30AM");
+            SatT.addItem("11.00AM");
+            SatT.addItem("11.30AM");
+            SatT.addItem("12.00PM");
+            SatT.addItem("12.30PM");
+            SatT.addItem("01.00PM");
+            SatT.addItem("01.30PM");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("10.00AM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("10.30AM");
+            SatT.addItem("11.00AM");
+            SatT.addItem("11.30AM");
+            SatT.addItem("12.00PM");
+            SatT.addItem("12.30PM");
+            SatT.addItem("01.00PM");
+            SatT.addItem("01.30PM");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("10.30AM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("11.00AM");
+            SatT.addItem("11.30AM");
+            SatT.addItem("12.00PM");
+            SatT.addItem("12.30PM");
+            SatT.addItem("01.00PM");
+            SatT.addItem("01.30PM");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("11.00AM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("11.30AM");
+            SatT.addItem("12.00PM");
+            SatT.addItem("12.30PM");
+            SatT.addItem("01.00PM");
+            SatT.addItem("01.30PM");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("11.30AM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("12.00PM");
+            SatT.addItem("12.30PM");
+            SatT.addItem("01.00PM");
+            SatT.addItem("01.30PM");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("12.00PM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("12.30PM");
+            SatT.addItem("01.00PM");
+            SatT.addItem("01.30PM");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("12.30PM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("01.00PM");
+            SatT.addItem("01.30PM");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("01.00PM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("01.30PM");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("01.30PM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("02.00PM");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("02.00PM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("02.30PM");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("02.30PM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("03.00PM");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("03.00PM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("03.30PM");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("03.30PM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("04.00PM");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("04.00PM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("04.30PM");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("04.30PM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("05.00PM");
+            SatT.addItem("05.30PM"); 
+            
+         }else if(SatF.getSelectedItem().equals("05.00PM")){
+         
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+            SatT.addItem("05.30PM"); 
+            
+         }else{
+             
+            SatT.removeAllItems();
+            SatT.addItem("Select");
+         
+         }
+        
+    }//GEN-LAST:event_SatFActionPerformed
+
+    private void SunFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SunFActionPerformed
+        
+        if(SunF.getSelectedItem().equals("08.00AM")){
+        
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("08.30AM");
+            SunT.addItem("09.00AM");
+            SunT.addItem("09.30AM");
+            SunT.addItem("10.00AM");
+            SunT.addItem("10.30AM");
+            SunT.addItem("11.00AM");
+            SunT.addItem("11.30AM");
+            SunT.addItem("12.00PM");
+            SunT.addItem("12.30PM");
+            SunT.addItem("01.00PM");
+            SunT.addItem("01.30PM");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");  
+            
+         }else if(SunF.getSelectedItem().equals("08.30AM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("09.00AM");
+            SunT.addItem("09.30AM");
+            SunT.addItem("10.00AM");
+            SunT.addItem("10.30AM");
+            SunT.addItem("11.00AM");
+            SunT.addItem("11.30AM");
+            SunT.addItem("12.00PM");
+            SunT.addItem("12.30PM");
+            SunT.addItem("01.00PM");
+            SunT.addItem("01.30PM");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("09.00AM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("09.30AM");
+            SunT.addItem("10.00AM");
+            SunT.addItem("10.30AM");
+            SunT.addItem("11.00AM");
+            SunT.addItem("11.30AM");
+            SunT.addItem("12.00PM");
+            SunT.addItem("12.30PM");
+            SunT.addItem("01.00PM");
+            SunT.addItem("01.30PM");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("09.30AM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("10.00AM");
+            SunT.addItem("10.30AM");
+            SunT.addItem("11.00AM");
+            SunT.addItem("11.30AM");
+            SunT.addItem("12.00PM");
+            SunT.addItem("12.30PM");
+            SunT.addItem("01.00PM");
+            SunT.addItem("01.30PM");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("10.00AM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("10.30AM");
+            SunT.addItem("11.00AM");
+            SunT.addItem("11.30AM");
+            SunT.addItem("12.00PM");
+            SunT.addItem("12.30PM");
+            SunT.addItem("01.00PM");
+            SunT.addItem("01.30PM");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("10.30AM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("11.00AM");
+            SunT.addItem("11.30AM");
+            SunT.addItem("12.00PM");
+            SunT.addItem("12.30PM");
+            SunT.addItem("01.00PM");
+            SunT.addItem("01.30PM");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("11.00AM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("11.30AM");
+            SunT.addItem("12.00PM");
+            SunT.addItem("12.30PM");
+            SunT.addItem("01.00PM");
+            SunT.addItem("01.30PM");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("11.30AM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("12.00PM");
+            SunT.addItem("12.30PM");
+            SunT.addItem("01.00PM");
+            SunT.addItem("01.30PM");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("12.00PM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("12.30PM");
+            SunT.addItem("01.00PM");
+            SunT.addItem("01.30PM");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("12.30PM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("01.00PM");
+            SunT.addItem("01.30PM");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("01.00PM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("01.30PM");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("01.30PM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("02.00PM");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("02.00PM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("02.30PM");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("02.30PM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("03.00PM");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("03.00PM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("03.30PM");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("03.30PM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("04.00PM");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("04.00PM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("04.30PM");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("04.30PM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("05.00PM");
+            SunT.addItem("05.30PM");
+            
+         }else if(SunF.getSelectedItem().equals("05.00PM")){
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+            SunT.addItem("05.30PM");
+            
+         }else{
+         
+            SunT.removeAllItems();
+            SunT.addItem("Select");
+         
+         }
+        
+    }//GEN-LAST:event_SunFActionPerformed
+
     public void Refresh()
     {
         EmpId_tf.setText("");
