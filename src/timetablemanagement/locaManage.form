@@ -73,7 +73,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="table">
+            <Component class="javax.swing.JTable" name="locationTable">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="0">
@@ -112,7 +112,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="locationTableMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
@@ -166,28 +166,29 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" pref="75" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" pref="75" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="roomTF" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
-                      <Component id="capacityTF" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
-                      <Component id="buildingCB" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lecRadio" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
                           <Component id="labRadio" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="capacityTF" alignment="0" max="32767" attributes="0"/>
+                      <Component id="roomTF" alignment="0" max="32767" attributes="0"/>
+                      <Component id="buildingCB" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="submitButton" min="-2" pref="95" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="updateButton" max="32767" attributes="0"/>
+                  <Component id="updateButton" pref="119" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
-                  <Component id="deleteButton" max="32767" attributes="0"/>
+                  <Component id="deleteButton" pref="115" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
-                  <Component id="clearButton" max="32767" attributes="0"/>
+                  <Component id="clearButton" pref="109" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -203,12 +204,15 @@
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="buildingCB" min="-2" pref="37" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buildingCB" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace pref="36" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="roomTF" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -237,10 +241,10 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
-                <StringItem index="0" value="Main Building"/>
-                <StringItem index="1" value="Engineering Building"/>
-                <StringItem index="2" value="Businees Building"/>
-                <StringItem index="3" value="New Green Building"/>
+                <StringItem index="0" value="Select Building"/>
+                <StringItem index="1" value="Main"/>
+                <StringItem index="2" value="D-Block"/>
+                <StringItem index="3" value="New Building"/>
               </StringArray>
             </Property>
           </Properties>
@@ -253,7 +257,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Room Name"/>
+            <Property name="text" type="java.lang.String" value="Building"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="roomTF">
@@ -277,6 +281,7 @@
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Lecture Hall"/>
+            <Property name="actionCommand" type="java.lang.String" value="Lecture"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lecRadioActionPerformed"/>
@@ -324,6 +329,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButtonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Room Name"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
