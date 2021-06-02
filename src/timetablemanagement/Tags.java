@@ -24,6 +24,11 @@ public class Tags extends javax.swing.JInternalFrame {
         initComponents();
         viewDetails();
         
+        combotagname.removeAllItems();
+        combotagname.addItem("Select");
+        fillComboTagName();
+        
+        
         this.setBorder(null);
         BasicInternalFrameUI bui = (BasicInternalFrameUI)this.getUI();
         bui.setNorthPane(null);
@@ -41,12 +46,12 @@ public class Tags extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        TagName_tf = new javax.swing.JTextField();
         TagCode_tf = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         RelatedTags = new javax.swing.JComboBox<>();
+        combotagname = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -75,6 +80,18 @@ public class Tags extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        TagCode_tf.setEditable(false);
+        TagCode_tf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TagCode_tfMousePressed(evt);
+            }
+        });
+        TagCode_tf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TagCode_tfKeyPressed(evt);
+            }
+        });
+
         jLabel1.setText("Tag Name");
 
         jLabel3.setText("Related Tag");
@@ -82,6 +99,18 @@ public class Tags extends javax.swing.JInternalFrame {
         jLabel4.setText("Tag Code");
 
         RelatedTags.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Lecture", "Lab", "Tute" }));
+
+        combotagname.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Lecture", "Lab", "Tute" }));
+        combotagname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combotagnameActionPerformed(evt);
+            }
+        });
+        combotagname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                combotagnameKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,9 +127,10 @@ public class Tags extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3)))
                 .addGap(134, 134, 134)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RelatedTags, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TagCode_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TagName_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(RelatedTags, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TagCode_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(combotagname, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -108,8 +138,8 @@ public class Tags extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TagName_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combotagname, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TagCode_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -317,7 +347,7 @@ public class Tags extends javax.swing.JInternalFrame {
     
     private void Add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_btnActionPerformed
         
-        String TagName = TagName_tf.getText();
+        String TagName = combotagname.getSelectedItem().toString();
         String TagCode = TagCode_tf.getText();
         String Related = RelatedTags.getSelectedItem().toString();
        
@@ -340,7 +370,6 @@ public class Tags extends javax.swing.JInternalFrame {
             }
             
             refresh();
-            
             viewDetails();
             
        }
@@ -357,8 +386,9 @@ public class Tags extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_Clear_btnActionPerformed
 
     private void Update_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update_btnActionPerformed
-        
-        String TagName = TagName_tf.getText();
+   //below line added
+        String tagname="";
+        String TagName = combotagname.getSelectedItem().toString();
         String TagCode = TagCode_tf.getText();
         String Related = RelatedTags.getSelectedItem().toString();
         //FindRelatedTags();
@@ -378,6 +408,46 @@ public class Tags extends javax.swing.JInternalFrame {
                 int confirm = JOptionPane.showConfirmDialog(null, "Do you want to Update?", "Update", JOptionPane.YES_NO_OPTION); 
                 if (confirm == 0) 
                 {
+                    //add 1
+                    try
+                    {
+                      ResultSet rs = DataBase.getData("SELECT tagname FROM tag where id = '"+PrimaryKey+"' ");
+
+                        if(rs.next()){
+
+                            tagname = rs.getString("tagname");
+                                               
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                            
+                    }
+                     try{
+
+                        ResultSet rs = DataBase.getData("SELECT tagname FROM session where tagname = '"+tagname+"' ");
+
+                        while(rs.next()){
+
+                            String tag = rs.getString("tagname");
+                                                    
+                                 try
+                                {
+
+                                  DataBase.setData("UPDATE session set tagname = '"+TagName+"' where tagname = '"+tag+"' ");
+                                  
+                                }
+                                catch (Exception e)
+                                {
+                                         // JOptionPane.showMessageDialog(null, "Failed session update" + e);
+                                }                                                  
+                        }
+                       
+                    }catch(Exception e){
+
+                       // JOptionPane.showMessageDialog(rootPane, e);
+                    }
+                    //end add 1 
                     try
                     {
                       DataBase.setData("UPDATE tag set tagname = '"+TagName+"', tagcode = '"+TagCode+"', relatedTag = '"+Related+"' where ID = '"+PrimaryKey+"' ");
@@ -388,6 +458,9 @@ public class Tags extends javax.swing.JInternalFrame {
                     {
                               JOptionPane.showMessageDialog(null, "Failed" + e);
                     }
+                    
+                   
+                   
                   refresh();
                   viewDetails();
                 }
@@ -404,7 +477,7 @@ public class Tags extends javax.swing.JInternalFrame {
         
         
         String pKey = (jTable2.getValueAt(jTable2.getSelectedRow(), 0).toString());
-        TagName_tf.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 1).toString());
+        combotagname.setSelectedItem(jTable2.getValueAt(jTable2.getSelectedRow(), 1).toString());
         TagCode_tf.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 2).toString());
         RelatedTags.setSelectedItem(jTable2.getValueAt(jTable2.getSelectedRow(), 3).toString());
         
@@ -486,10 +559,78 @@ public class Tags extends javax.swing.JInternalFrame {
             }
     }//GEN-LAST:event_Search_tfKeyReleased
 
-    
+    private void TagCode_tfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TagCode_tfKeyPressed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TagCode_tfKeyPressed
+
+    private void combotagnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combotagnameActionPerformed
+      
+        var subname = combotagname.getSelectedItem();
+        if(subname == null){       
+        }else{
+        String subcode = "";
+        try{
+            
+             ResultSet rs = DataBase.getData("SELECT subcode FROM subjects where subname = '"+subname+"'");
+             
+            if(rs.next()){
+            
+                subcode = rs.getString("subcode");
+                TagCode_tf.setText(subcode);
+            }
+            
+          
+        
+        }catch(Exception e){
+        
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+        
+        RelatedTags.removeAllItems();
+        RelatedTags.addItem("Select");
+        String tag =TagCode_tf.getText().toString();
+        try{
+          
+           // ResultSet rs = DataBase.getData("SELECT DISTINCT relatedtag FROM tag where tagcode = '"+tag+"'" );
+           ResultSet rs = DataBase.getData("SELECT *  FROM subjects where subcode = '"+tag+"'" );
+             
+            if(rs.next()){
+            
+              int lab = rs.getInt("labhours");
+              int tute = rs.getInt("tutehours");  
+              int lec = rs.getInt("lechours");  
+                    
+               if(lab>0){
+                RelatedTags.addItem("Lab");
+               }
+                if(tute>0){
+                RelatedTags.addItem("Tute");
+               }
+                 if(lec>0){
+                RelatedTags.addItem("Lecture");
+               }
+            }
+        }catch(Exception e){
+        
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+    }//GEN-LAST:event_combotagnameActionPerformed
+
+    private void combotagnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_combotagnameKeyReleased
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combotagnameKeyReleased
+
+    private void TagCode_tfMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TagCode_tfMousePressed
+
+      // tagCode();        // TODO add your handling code here:
+    }//GEN-LAST:event_TagCode_tfMousePressed
+  
     public void refresh()
     {
-        TagName_tf.setText("");
+        combotagname.setSelectedItem("Select");
         TagCode_tf.setText("");
         RelatedTags.setSelectedItem("Select");
         Search_tf.setText("");
@@ -526,6 +667,23 @@ public class Tags extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, e);
             }
     }
+    
+      private void fillComboTagName(){
+  
+        try{
+          
+            ResultSet rs = DataBase.getData("SELECT subname AS sub FROM subjects order by id");
+             
+            while(rs.next()){
+            
+                String tagname = rs.getString("sub");
+                combotagname.addItem(tagname);
+            }
+        }catch(Exception e){
+        
+            JOptionPane.showMessageDialog(rootPane, e);
+        }        
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add_btn;
@@ -534,8 +692,8 @@ public class Tags extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> RelatedTags;
     private javax.swing.JTextField Search_tf;
     private javax.swing.JTextField TagCode_tf;
-    private javax.swing.JTextField TagName_tf;
     private javax.swing.JButton Update_btn;
+    private javax.swing.JComboBox<String> combotagname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

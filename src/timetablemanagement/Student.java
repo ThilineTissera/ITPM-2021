@@ -339,19 +339,43 @@ public class Student extends javax.swing.JInternalFrame {
         String subN = SGrpNo.getValue().toString();
         String GId = GId_tf.getText();
         String sId = SGId_tf.getText();
+        
+        int g = Integer.parseInt(GroupN);
+        
+        if(Accademic == "Select")
+        {
+            JOptionPane.showMessageDialog(null, "Please select Accademic Year");
+        }
+        
+         
+        else if(Program == "Select")
+        {
+            JOptionPane.showMessageDialog(null, "Please select a program");
+        }
+        else if(g == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Invalid  Group No");
+        }
+         else if(GId.equalsIgnoreCase("") || sId.equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(null, "Please Press the Generate ID button");
+        }
+        else
+        {
        
-       try
-       {
-           DataBase.setData("insert into student(yrsm, Programm,GrpNo,SubGrpNo,GrpID,subGrpID) values('"+Accademic+"','"+Program+"','"+GroupN+"','"+subN+"','"+GId+"','"+sId+"')");
-           JOptionPane.showMessageDialog(null, "Details Successfully Added");
-           
-       }
-       catch (Exception e)
-               {
-                   JOptionPane.showMessageDialog(null, "Failed" + e);
-               }
-       refresh();
-       viewDetails();
+            try
+            {
+                DataBase.setData("insert into student(yrsm, Programm,GrpNo,SubGrpNo,GrpID,subGrpID) values('"+Accademic+"','"+Program+"','"+GroupN+"','"+subN+"','"+GId+"','"+sId+"')");
+                JOptionPane.showMessageDialog(null, "Details Successfully Added");
+
+            }
+            catch (Exception e)
+                    {
+                        JOptionPane.showMessageDialog(null, "Failed" + e);
+                    }
+            refresh();
+            viewDetails();
+        }
     }//GEN-LAST:event_Add_btnActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -458,6 +482,10 @@ public class Student extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_Delete_btnActionPerformed
 
     private void Update_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update_btnActionPerformed
+       //added below 3 lines
+        String group = "";
+        String grp = "";
+        String sub = "";
         String Accademic = Accademic_cb.getSelectedItem().toString();
         String Program = Program_cb.getSelectedItem().toString();
         String GroupN = GrpNo.getValue().toString();
@@ -465,33 +493,120 @@ public class Student extends javax.swing.JInternalFrame {
         String GId = GId_tf.getText();
         String sId = SGId_tf.getText();
         
-        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
-        int row = jTable1.getSelectedRow();
-
-        if (row != -1) 
-        {
+         int g = Integer.parseInt(GroupN);
         
-            int confirm = JOptionPane.showConfirmDialog(null, "Do you want to Update?", "Update", JOptionPane.YES_NO_OPTION); 
-            if (confirm == 0) 
-            {
-                try
-                {
-                  DataBase.setData("UPDATE student set yrSm = '"+Accademic+"', Programm = '"+Program+"', GrpNo = '"+GroupN+"', SubGrpNo = '"+subN+"', GrpID = '"+GId+"', subGrpID = '"+sId+"' where sID = '"+PrimaryKey+"' ");
-                  JOptionPane.showMessageDialog(null, " Successfully Updated");
-
-                }
-                catch (Exception e)
-                {
-                          JOptionPane.showMessageDialog(null, "Failed" + e);
-                }
-              refresh();
-              viewDetails();
-            }
+        if(Accademic == "Select")
+        {
+            JOptionPane.showMessageDialog(null, "Please select Accademic Year");
+        }
+        
+         
+        else if(Program == "Select")
+        {
+            JOptionPane.showMessageDialog(null, "Please select a program");
+        }
+        else if(g == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Invalid  Group No");
+        }
+         else if(GId.equalsIgnoreCase("") || sId.equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(null, "Please Press the Generate ID button");
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "Please Select a Row for Update");
-        }
+        
+                DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+                int row = jTable1.getSelectedRow();
+
+                if (row != -1) 
+                {
+
+                    int confirm = JOptionPane.showConfirmDialog(null, "Do you want to Update?", "Update", JOptionPane.YES_NO_OPTION); 
+                    if (confirm == 0) 
+                    {
+
+                         //add 1
+                            try{
+
+                                ResultSet rs = DataBase.getData("SELECT concat(grpid,'-',subgrpid) as grp FROM student where sid = '"+PrimaryKey+"' ");
+
+                                if(rs.next()){
+
+                                    group = rs.getString("grp");                       
+                                }
+
+                                String[] result = group.split("-");
+                                grp = result[0];
+                                sub = result[1];
+
+                            }catch(Exception e){
+
+                             //  JOptionPane.showMessageDialog(rootPane, e);
+                            }
+                            try{
+
+                                ResultSet rs = DataBase.getData("SELECT groupname FROM session where groupname = '"+grp+"' || groupname = '"+sub+"' ");
+
+                                while(rs.next()){
+
+                                    String gn = rs.getString("groupname");
+
+
+
+                                    if(gn.length()==10){
+
+                                         try
+                                        {
+
+                                          DataBase.setData("UPDATE session set groupname = '"+GId+"' where groupname = '"+gn+"' ");
+
+                                        }
+                                        catch (Exception e)
+                                        {
+                                                 // JOptionPane.showMessageDialog(null, "Failed session update" + e);
+                                        }                           
+                                    }else if(gn.length()==13){
+
+                                         try
+                                        {
+
+                                          DataBase.setData("UPDATE session set groupname = '"+sId+"' where groupname = '"+gn+"' ");
+
+                                        }
+                                        catch (Exception e)
+                                        {
+                                                 // JOptionPane.showMessageDialog(null, "Failed session update" + e);
+                                        } 
+
+                                    }
+
+                                }
+
+                            }catch(Exception e){
+
+                               // JOptionPane.showMessageDialog(rootPane, e);
+                            }
+                            //end add 1
+                        try
+                        {
+                          DataBase.setData("UPDATE student set yrSm = '"+Accademic+"', Programm = '"+Program+"', GrpNo = '"+GroupN+"', SubGrpNo = '"+subN+"', GrpID = '"+GId+"', subGrpID = '"+sId+"' where sID = '"+PrimaryKey+"' ");
+                          JOptionPane.showMessageDialog(null, " Successfully Updated");
+
+                        }
+                        catch (Exception e)
+                        {
+                                  JOptionPane.showMessageDialog(null, "Failed" + e);
+                        }
+                      refresh();
+                      viewDetails();
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Please Select a Row for Update");
+                }
+    }
     }//GEN-LAST:event_Update_btnActionPerformed
 
     private void Program_cbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Program_cbActionPerformed
