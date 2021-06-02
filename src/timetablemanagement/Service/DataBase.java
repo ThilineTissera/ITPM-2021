@@ -6,7 +6,7 @@
 
  */
 
-package timetablemanagement;
+package timetablemanagement.Service;
 
 import java.sql.*;
 
@@ -16,15 +16,16 @@ import java.sql.*;
  */ 
 public class DataBase 
 {
-    public static Connection con; 
+    public static Connection con;
     
     public static Connection getConnection() throws Exception
     {
          if(con == null){
-        Class.forName("com.mysql.cj.jdbc.Driver");
-      //con = DriverManager.getConnection("jdbc:mysql://database-itpm.cw1dxpagmsps.ap-southeast-1.rds.amazonaws.com:3306/timetablemanagement", "admin", "VFu7UBO794tPaZIUNl4X");
-      con = DriverManager.getConnection("jdbc:mysql://localhost:3306/timetablemanagement", "root", "");
-        }
+            Class.forName("com.mysql.cj.jdbc.Driver");
+           // con = DriverManager.getConnection("jdbc:mysql://database-itpm.cw1dxpagmsps.ap-southeast-1.rds.amazonaws.com:3306/sachintest", "admin", "VFu7UBO794tPaZIUNl4X");
+           // con = DriverManager.getConnection("jdbc:mysql://database-itpm.cw1dxpagmsps.ap-southeast-1.rds.amazonaws.com:3306/timetablemanagement", "admin", "VFu7UBO794tPaZIUNl4X");
+          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/timetablemanagement", "root", "");
+         }
         return con;
     }
     
