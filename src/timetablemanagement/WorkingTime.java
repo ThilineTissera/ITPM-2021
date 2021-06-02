@@ -5,6 +5,22 @@
  */
 package timetablemanagement;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import static timetablemanagement.Home.HomeDesktop;
+import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
+
+
 /**
  *
  * @author Thiline Tissera
@@ -16,6 +32,13 @@ public class WorkingTime extends javax.swing.JInternalFrame {
      */
     public WorkingTime() {
         initComponents();
+        LoadTable();    
+        
+        this.setBorder(null);
+        BasicInternalFrameUI bui = (BasicInternalFrameUI)this.getUI();
+        bui.setNorthPane(null);
+        
+        
     }
 
     /**
@@ -27,21 +50,745 @@ public class WorkingTime extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        Ndys = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        monday_cb = new java.awt.Checkbox();
+        tuesday_cb = new java.awt.Checkbox();
+        wednesday_cb = new java.awt.Checkbox();
+        thursday_cb = new java.awt.Checkbox();
+        friday_cb = new java.awt.Checkbox();
+        saturday_cb = new java.awt.Checkbox();
+        sunday_cb = new java.awt.Checkbox();
+        jLabel3 = new javax.swing.JLabel();
+        Mon_H = new javax.swing.JComboBox<>();
+        Tue_H = new javax.swing.JComboBox<>();
+        Wed_H = new javax.swing.JComboBox<>();
+        Thu_H = new javax.swing.JComboBox<>();
+        Fri_H = new javax.swing.JComboBox<>();
+        Sat_H = new javax.swing.JComboBox<>();
+        Sun_H = new javax.swing.JComboBox<>();
+        Mon_m = new javax.swing.JComboBox<>();
+        Tue_m = new javax.swing.JComboBox<>();
+        Wed_m = new javax.swing.JComboBox<>();
+        Thu_m = new javax.swing.JComboBox<>();
+        Fri_m = new javax.swing.JComboBox<>();
+        Sat_m = new javax.swing.JComboBox<>();
+        Sun_m = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        UpdateBtn = new javax.swing.JButton();
+        ClearBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Number of Working Days");
+
+        Ndys.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "7", "6", "5", "4", "3", "2", "1", " " }));
+
+        monday_cb.setLabel("Monday");
+        monday_cb.setPreferredSize(new java.awt.Dimension(66, 18));
+
+        tuesday_cb.setLabel("Tuesday");
+        tuesday_cb.setPreferredSize(new java.awt.Dimension(71, 18));
+        tuesday_cb.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                tuesday_cbItemStateChanged(evt);
+            }
+        });
+
+        wednesday_cb.setLabel("Wednesday");
+        wednesday_cb.setPreferredSize(new java.awt.Dimension(88, 18));
+
+        thursday_cb.setLabel("Thursday");
+        thursday_cb.setPreferredSize(new java.awt.Dimension(75, 18));
+
+        friday_cb.setLabel("Friday");
+        friday_cb.setPreferredSize(new java.awt.Dimension(58, 18));
+
+        saturday_cb.setLabel("Saturday");
+        saturday_cb.setPreferredSize(new java.awt.Dimension(72, 18));
+
+        sunday_cb.setLabel("Sunday");
+        sunday_cb.setMinimumSize(new java.awt.Dimension(65, 18));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tuesday_cb, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(monday_cb, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(122, 122, 122))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(wednesday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(thursday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(friday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(saturday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sunday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(monday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tuesday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(wednesday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(thursday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(friday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(saturday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(sunday_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Working Days");
+
+        Mon_H.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "08.00AM", "08.30AM", "09.00AM", "09.30AM", "10.00AM", "10.30AM", "11.00AM", "11.30AM", "12.00AM", "12.30PM", "01.00PM", "01.30PM", "02.00PM", "02.30PM", "03.00PM", "03.30PM", "04.00PM", "04.30PM", "05.00PM", " " }));
+
+        Tue_H.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "08.00AM", "08.30AM", "09.00AM", "09.30AM", "10.00AM", "10.30AM", "11.00AM", "11.30AM", "12.00AM", "12.30PM", "01.00PM", "01.30PM", "02.00PM", "02.30PM", "03.00PM", "03.30PM", "04.00PM", "04.30PM", "05.00PM", " " }));
+
+        Wed_H.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "08.00AM", "08.30AM", "09.00AM", "09.30AM", "10.00AM", "10.30AM", "11.00AM", "11.30AM", "12.00AM", "12.30PM", "01.00PM", "01.30PM", "02.00PM", "02.30PM", "03.00PM", "03.30PM", "04.00PM", "04.30PM", "05.00PM", " " }));
+
+        Thu_H.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "08.00AM", "08.30AM", "09.00AM", "09.30AM", "10.00AM", "10.30AM", "11.00AM", "11.30AM", "12.00AM", "12.30PM", "01.00PM", "01.30PM", "02.00PM", "02.30PM", "03.00PM", "03.30PM", "04.00PM", "04.30PM", "05.00PM", " " }));
+
+        Fri_H.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "08.00AM", "08.30AM", "09.00AM", "09.30AM", "10.00AM", "10.30AM", "11.00AM", "11.30AM", "12.00AM", "12.30PM", "01.00PM", "01.30PM", "02.00PM", "02.30PM", "03.00PM", "03.30PM", "04.00PM", "04.30PM", "05.00PM", " " }));
+
+        Sat_H.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "08.00AM", "08.30AM", "09.00AM", "09.30AM", "10.00AM", "10.30AM", "11.00AM", "11.30AM", "12.00AM", "12.30PM", "01.00PM", "01.30PM", "02.00PM", "02.30PM", "03.00PM", "03.30PM", "04.00PM", "04.30PM", "05.00PM", " " }));
+
+        Sun_H.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "08.00AM", "08.30AM", "09.00AM", "09.30AM", "10.00AM", "10.30AM", "11.00AM", "11.30AM", "12.00AM", "12.30PM", "01.00PM", "01.30PM", "02.00PM", "02.30PM", "03.00PM", "03.30PM", "04.00PM", "04.30PM", "05.00PM", " " }));
+
+        Mon_m.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "05.00PM", "04.30PM", "04.00PM", "03.30PM", "03.00PM", "02.30PM", "02.00PM", "01.30PM", "01.00PM", "12.30PM", "12.00PM", "11.30AM", "11.00AM", "10.30AM", "10.00AM", "09.30AM", "09.00AM", "08.30AM", " " }));
+
+        Tue_m.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "05.00PM", "04.30PM", "04.00PM", "03.30PM", "03.00PM", "02.30PM", "02.00PM", "01.30PM", "01.00PM", "12.30PM", "12.00PM", "11.30AM", "11.00AM", "10.30AM", "10.00AM", "09.30AM", "09.00AM", "08.30AM" }));
+
+        Wed_m.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "05.00PM", "04.30PM", "04.00PM", "03.30PM", "03.00PM", "02.30PM", "02.00PM", "01.30PM", "01.00PM", "12.30PM", "12.00PM", "11.30AM", "11.00AM", "10.30AM", "10.00AM", "09.30AM", "09.00AM", "08.30AM" }));
+
+        Thu_m.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "05.00PM", "04.30PM", "04.00PM", "03.30PM", "03.00PM", "02.30PM", "02.00PM", "01.30PM", "01.00PM", "12.30PM", "12.00PM", "11.30AM", "11.00AM", "10.30AM", "10.00AM", "09.30AM", "09.00AM", "08.30AM" }));
+
+        Fri_m.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "05.00PM", "04.30PM", "04.00PM", "03.30PM", "03.00PM", "02.30PM", "02.00PM", "01.30PM", "01.00PM", "12.30PM", "12.00PM", "11.30AM", "11.00AM", "10.30AM", "10.00AM", "09.30AM", "09.00AM", "08.30AM" }));
+
+        Sat_m.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "05.00PM", "04.30PM", "04.00PM", "03.30PM", "03.00PM", "02.30PM", "02.00PM", "01.30PM", "01.00PM", "12.30PM", "12.00PM", "11.30AM", "11.00AM", "10.30AM", "10.00AM", "09.30AM", "09.00AM", "08.30AM" }));
+
+        Sun_m.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "05.00PM", "04.30PM", "04.00PM", "03.30PM", "03.00PM", "02.30PM", "02.00PM", "01.30PM", "01.00PM", "12.30PM", "12.00PM", "11.30AM", "11.00AM", "10.30AM", "10.00AM", "09.30AM", "09.00AM", "08.30AM" }));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setText("Duration Of the Day");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel6.setText("From");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel4.setText("To");
+
+        UpdateBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        UpdateBtn.setText("Update");
+        UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateBtnActionPerformed(evt);
+            }
+        });
+
+        ClearBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ClearBtn.setText("Clear");
+        ClearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearBtnActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "NumberofDays", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(Mon_H, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Tue_H, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(69, 69, 69)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(Tue_m, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabel4)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(Mon_m, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(Wed_H, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Thu_H, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Fri_H, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Sat_H, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Sun_H, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(Wed_m, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Thu_m, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Fri_m, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Sun_m, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Sat_m, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(104, 104, 104)
+                                        .addComponent(UpdateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(53, 53, 53)
+                                        .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Ndys, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 278, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Ndys, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Mon_H, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Mon_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Tue_H, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Tue_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Wed_H, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Wed_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Thu_H, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Thu_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Fri_H, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Fri_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Sat_H, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Sat_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Sun_H, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Sun_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UpdateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tuesday_cbItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tuesday_cbItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tuesday_cbItemStateChanged
+ public void Refresh()
+    {
+        
+        monday_cb.setState(false);
+        Mon_H.setSelectedItem("Select");
+        Mon_m.setSelectedItem("Select");
+        
+        tuesday_cb.setState(false);
+        Tue_H.setSelectedItem("Select");
+        Tue_m.setSelectedItem("Select");
+        
+        wednesday_cb.setState(false);
+        Wed_H.setSelectedItem("Select");
+        Wed_m.setSelectedItem("Select");
+        
+        thursday_cb.setState(false);
+        Thu_m.setSelectedItem("Select");
+        Thu_H.setSelectedItem("Select");
+        
+        friday_cb.setState(false);
+        Fri_H.setSelectedItem("Select");
+        Fri_m.setSelectedItem("Select");
+        
+        saturday_cb.setState(false);
+        Sat_H.setSelectedItem("Select");
+        Sat_m.setSelectedItem("Select");
+        
+        sunday_cb.setState(false);
+        Sun_H.setSelectedItem("Select");
+        Sun_m.setSelectedItem("Select");
+        
+        
+    }
+    
+      public void LoadTable()
+    {
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        dtm.setRowCount(0);
+        
+        try {
+              
+                ResultSet rs = DataBase.getData("Select NoOfDays,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday from dayshours");
+                
+                while (rs.next())
+                {
+
+                    Vector v = new Vector();
+                   
+                    v.add(rs.getString(1));
+                    v.add(rs.getString(2));  
+                    v.add(rs.getString(3));  
+                    v.add(rs.getString(4));  
+                    v.add(rs.getString(5));
+                    v.add(rs.getString(6));  
+                    v.add(rs.getString(7));  
+                    v.add(rs.getString(8));
+                    dtm.addRow(v);
+
+                }
+
+            } catch (Exception e) 
+            {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
+    private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
+
+        String mon = "";
+        String tue = "";
+        String wed = "";
+        String thu = "";
+        String fri = "";
+        String sat = "";
+        String sun = "";
+        String monH = "";
+        String monM = "";
+        String tueH = "";
+        String tueM = "";
+        String wedH = "";
+        String wedM = "";
+        String thuH = "";
+        String thuM = "";
+        String friH = "";
+        String friM = "";
+        String satH = "";
+        String satM = "";
+        String sunH = "";
+        String sunM = "";
+        String nDays="";
+        
+        nDays=Ndys.getSelectedItem().toString();
+        
+        if(validateFields()){
+
+            if(monday_cb.getState())
+            {
+                monH = Mon_H.getSelectedItem().toString();
+                monM = Mon_m.getSelectedItem().toString();
+                mon=monH + "-" + monM;
+
+            }else{
+                  
+                
+                mon="--";
+            }
+
+            if(tuesday_cb.getState())
+            {
+                tueH = Tue_H.getSelectedItem().toString();
+                tueM = Tue_m.getSelectedItem().toString();
+                tue=tueH + "-" + tueM;
+
+            } else{
+
+                
+                
+                tue="--";
+            }
+
+            if(wednesday_cb.getState())
+            {
+                wedH = Wed_H.getSelectedItem().toString();
+                wedM = Wed_m.getSelectedItem().toString();
+                wed=wedH + "-" + wedM;
+
+            } else{
+
+                
+                wed="--";
+            }
+
+            if(thursday_cb.getState())
+            {
+                thuH = Thu_H.getSelectedItem().toString();
+                thuM = Thu_m.getSelectedItem().toString();
+                thu=thuH + "-" + thuM;
+
+            }else{
+                
+                thu="--";
+            }
+
+            if(friday_cb.getState())
+            {
+                friH = Fri_H.getSelectedItem().toString();
+                friM = Fri_m.getSelectedItem().toString();
+                fri=friH + "-" + friM;
+
+            }else{
+
+                
+                fri="--";
+            }
+
+            if(saturday_cb.getState())
+            {
+                satH = Sat_H.getSelectedItem().toString();
+                satM = Sat_m.getSelectedItem().toString();
+                sat=satH + "-" + satM;
+
+            }else{
+
+               
+                sat="--";
+            }
+
+            if(sunday_cb.getState())
+            {
+               sunH = Sun_H.getSelectedItem().toString();
+               sunM = Sun_m.getSelectedItem().toString();
+               sun=sunH + "-" + sunM;
+
+            }else{
+
+                
+                sun="--";
+            }
+
+            
+               try
+                {
+                    
+                    DataBase.setData("DELETE FROM dayshours" );
+                    DataBase.setData("insert into dayshours ( NoOfDays,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday) VALUES ('"+nDays+"','"+mon+"', '"+tue+"', '"+wed+"', '"+thu+"', '"+fri+"', '"+sat+"', '"+sun+"')");
+                   
+                    JOptionPane.showMessageDialog(null, "Details Successfully Updated");
+                    Refresh();
+
+                }
+                catch (Exception e)
+                {
+                    JOptionPane.showMessageDialog(null, "Failed" + e);
+                }
+
+              
+                LoadTable();
+
+            
+
+        }
+        
+         /*   myjava x = new myjava();
+        x.Connection();*/
+
+    }//GEN-LAST:event_UpdateBtnActionPerformed
+
+    private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed
+       
+                    Refresh();
+
+               
+    }//GEN-LAST:event_ClearBtnActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    
+       
+        Ndys.setSelectedItem(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+     
+      /* List <String[]>datelist=new ArrayList<String[]>();
+        for(int i=0;i<7;i++)
+        {
+           
+            aSplit=(jTable1.getValueAt(1,i).toString());
+            String dateArray[]=aSplit.split(".");
+            datelist.add(dateArray);
+            
+            if(i==1)
+            {
+                Mon_H.setSelectedItem(datelist.get(0)[0]);
+                Mon_m.setSelectedItem(datelist.get(0)[1]);
+                monday_cb.setState("Select".equalsIgnoreCase(datelist.get(0)[0])?false:true);
+            }
+            
+            if(i==2)
+            {   
+                Tue_H.setSelectedItem(datelist.get(1)[0]);
+                Tue_m.setSelectedItem(datelist.get(1)[1]);
+                tuesday_cb.setState("Select".equalsIgnoreCase(datelist.get(1)[0])?false:true);
+            }
+            
+            if(i==3)
+            {   
+                Wed_H.setSelectedItem(datelist.get(2)[0]);
+                Wed_m.setSelectedItem(datelist.get(2)[1]);
+                wednesday_cb.setState("Select".equalsIgnoreCase(datelist.get(2)[0])?false:true);
+            }
+            
+            if(i==4)
+            {   
+                Thu_H.setSelectedItem(datelist.get(3)[0]);
+                Thu_m.setSelectedItem(datelist.get(3)[1]);
+                thursday_cb.setState("Select".equalsIgnoreCase(datelist.get(3)[0])?false:true);
+            }
+            
+            if(i==5)
+            {   
+                Fri_H.setSelectedItem(datelist.get(4)[0]);
+                Fri_m.setSelectedItem(datelist.get(4)[1]);
+                friday_cb.setState("Select".equalsIgnoreCase(datelist.get(4)[0])?false:true);
+            }
+            
+            if(i==6)
+            {   
+                Sat_H.setSelectedItem(datelist.get(5)[0]);
+                Sat_m.setSelectedItem(datelist.get(5)[1]);
+                saturday_cb.setState("Select".equalsIgnoreCase(datelist.get(5)[0])?false:true);
+            }
+            
+            if(i==7)
+            {   
+                Sun_H.setSelectedItem(datelist.get(6)[0]);
+                Sun_m.setSelectedItem(datelist.get(6)[1]);
+                sunday_cb.setState("Select".equalsIgnoreCase(datelist.get(6)[0])?false:true);
+            }
+        }*/
+List <String[]>datelist=new ArrayList<String[]>();
+        for(int i=1;i<8;i++)
+        {
+            datelist.add(GetTimeArray(jTable1.getValueAt(jTable1.getSelectedRow(), i).toString()));
+            
+        }
+
+                Mon_H.setSelectedItem(datelist.get(0)[0]);
+                Mon_m.setSelectedItem(datelist.get(0)[1]);
+                monday_cb.setState("Select".equalsIgnoreCase(datelist.get(0)[0])?false:true);
+
+                Tue_H.setSelectedItem(datelist.get(1)[0]);
+                Tue_m.setSelectedItem(datelist.get(1)[1]);
+                tuesday_cb.setState("Select".equalsIgnoreCase(datelist.get(1)[0])?false:true);
+                
+                Wed_H.setSelectedItem(datelist.get(2)[0]);
+                Wed_m.setSelectedItem(datelist.get(2)[1]);
+                wednesday_cb.setState("Select".equalsIgnoreCase(datelist.get(2)[0])?false:true);
+
+                Thu_H.setSelectedItem(datelist.get(3)[0]);
+                Thu_m.setSelectedItem(datelist.get(3)[1]);
+                thursday_cb.setState("Select".equalsIgnoreCase(datelist.get(3)[0])?false:true);
+
+                Fri_H.setSelectedItem(datelist.get(4)[0]);
+                Fri_m.setSelectedItem(datelist.get(4)[1]);
+                friday_cb.setState("Select".equalsIgnoreCase(datelist.get(4)[0])?false:true);
+
+                Sat_H.setSelectedItem(datelist.get(5)[0]);
+                Sat_m.setSelectedItem(datelist.get(5)[1]);
+                saturday_cb.setState("Select".equalsIgnoreCase(datelist.get(5)[0])?false:true);
+
+                Sun_H.setSelectedItem(datelist.get(6)[0]);
+                Sun_m.setSelectedItem(datelist.get(6)[1]);
+                sunday_cb.setState("Select".equalsIgnoreCase(datelist.get(6)[0])?false:true);
+    }//GEN-LAST:event_jTable1MouseClicked
+public String[] GetTimeArray(String Mon)
+     {
+         Mon = Mon.replaceAll(" ", "");
+         String dateArray[]=Mon.split("-");
+         if(dateArray.length==2){
+             return dateArray;
+         }
+         else
+         {
+             String dateArray2[]={"Select","Select"};
+             return dateArray2;
+         }
+         
+     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ClearBtn;
+    private javax.swing.JComboBox<String> Fri_H;
+    private javax.swing.JComboBox<String> Fri_m;
+    private javax.swing.JComboBox<String> Mon_H;
+    private javax.swing.JComboBox<String> Mon_m;
+    private javax.swing.JComboBox<String> Ndys;
+    private javax.swing.JComboBox<String> Sat_H;
+    private javax.swing.JComboBox<String> Sat_m;
+    private javax.swing.JComboBox<String> Sun_H;
+    private javax.swing.JComboBox<String> Sun_m;
+    private javax.swing.JComboBox<String> Thu_H;
+    private javax.swing.JComboBox<String> Thu_m;
+    private javax.swing.JComboBox<String> Tue_H;
+    private javax.swing.JComboBox<String> Tue_m;
+    private javax.swing.JButton UpdateBtn;
+    private javax.swing.JComboBox<String> Wed_H;
+    private javax.swing.JComboBox<String> Wed_m;
+    private java.awt.Checkbox friday_cb;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private java.awt.Checkbox monday_cb;
+    private java.awt.Checkbox saturday_cb;
+    private java.awt.Checkbox sunday_cb;
+    private java.awt.Checkbox thursday_cb;
+    private java.awt.Checkbox tuesday_cb;
+    private java.awt.Checkbox wednesday_cb;
     // End of variables declaration//GEN-END:variables
+
+    
+    
+    public boolean validateFields(){
+           
+        if (monday_cb.getState()== true) 
+        {
+            if(Mon_H.getSelectedItem()=="Select" || Mon_m.getSelectedItem()=="Select"){
+            
+                 JOptionPane.showMessageDialog(null, "Enter Time period for Monday");
+                 return false;
+                 
+            }
+        }      
+        if (tuesday_cb.getState()== true) 
+        {
+            if(Tue_H.getSelectedItem()=="Select" || Tue_m.getSelectedItem()=="Select"){
+            
+                 JOptionPane.showMessageDialog(null, "Enter Time period for Tuesday");
+                 return false;
+            }
+           
+        }
+        if (wednesday_cb.getState()== true) 
+        {
+            if(Wed_H.getSelectedItem()=="Select" || Wed_m.getSelectedItem()=="Select"){
+            
+                 JOptionPane.showMessageDialog(null, "Enter Time period for Wednesday");
+                 return false;
+            }
+           
+        } 
+        if (thursday_cb.getState()== true) 
+        {
+            if(Thu_H.getSelectedItem()=="Select" || Thu_m.getSelectedItem()=="Select"){
+            
+                 JOptionPane.showMessageDialog(null, "Enter Time period for Thursday");
+                 return false;
+            }
+            
+        } 
+        if (friday_cb.getState()== true) 
+        {
+            if(Fri_H.getSelectedItem()=="Select" || Fri_m.getSelectedItem()=="Select"){
+            
+                 JOptionPane.showMessageDialog(null, "Enter Time period for Friday");
+                 return false;
+            }
+            
+        } 
+        if (saturday_cb.getState()== true) 
+        {
+            if(Sat_H.getSelectedItem()=="Select" || Sat_m.getSelectedItem()=="Select"){
+            
+                 JOptionPane.showMessageDialog(null, "Enter Time period for Saturday");
+                 return false;
+            }
+           
+        }  
+        if (sunday_cb.getState()== true) 
+        {
+            if(Sun_H.getSelectedItem()=="Select" || Sun_m.getSelectedItem()=="Select"){
+            
+                 JOptionPane.showMessageDialog(null, "Enter Time period for Sunday");
+                 return false;
+            }
+                  
+        }   
+        
+     return true;
+     }
+    
+   
 }
