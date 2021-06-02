@@ -5,12 +5,20 @@
  */
 package timetablemanagement;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import static java.lang.Thread.sleep;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+
+//import java.util.GregorianCalendar;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.Timer;
+import java.util.Calendar;
+//import java.util.GregorianCalendar;
+
 
 /**
  *
@@ -21,10 +29,19 @@ public class Home extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
+    private String currentDate;
+    private String currenTime;
+    
     public Home() {
         initComponents();
-        clock();
+        showTime();
+        showDate();
         
+       HomeDesktop.removeAll();
+       TimeTable tt = new TimeTable();
+       HomeDesktop.add(tt).setVisible(true);
+       tt.setSize(HomeDesktop.getWidth(), HomeDesktop.getHeight());
+       
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
@@ -46,13 +63,14 @@ public class Home extends javax.swing.JFrame {
         btnWorkingD = new javax.swing.JButton();
         BtnLocation = new javax.swing.JButton();
         BtnStat = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnTimetble = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jButton12 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        Time_L = new javax.swing.JLabel();
+        btnsessions = new javax.swing.JButton();
+        btn_Unavailable_Location = new javax.swing.JButton();
+        btn_rooms = new javax.swing.JButton();
+        btn_sSession = new javax.swing.JButton();
+        date_L = new javax.swing.JLabel();
+        Time_L1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,13 +155,13 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(51, 51, 51));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Time Tables");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnTimetble.setBackground(new java.awt.Color(51, 51, 51));
+        btnTimetble.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnTimetble.setForeground(new java.awt.Color(255, 255, 255));
+        btnTimetble.setText("Time Tables");
+        btnTimetble.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnTimetbleActionPerformed(evt);
             }
         });
 
@@ -161,38 +179,70 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(BtnLocation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnStat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLecturers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnTimetble, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnLecturers, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLecturers, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnSubjects, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSubjects, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnTags, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnTags, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnWorkingD, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnWorkingD, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(BtnLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(BtnStat, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnStat, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(btnTimetble, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                .addGap(23, 23, 23))
         );
 
-        jButton12.setText("Sessions");
+        btnsessions.setBackground(new java.awt.Color(51, 51, 51));
+        btnsessions.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnsessions.setForeground(new java.awt.Color(255, 255, 255));
+        btnsessions.setText("Sessions");
+        btnsessions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsessionsActionPerformed(evt);
+            }
+        });
 
-        jButton10.setText("Not Available Times");
+        btn_Unavailable_Location.setBackground(new java.awt.Color(51, 51, 51));
+        btn_Unavailable_Location.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_Unavailable_Location.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Unavailable_Location.setText("Unavailable Location");
+        btn_Unavailable_Location.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Unavailable_LocationActionPerformed(evt);
+            }
+        });
 
-        jButton11.setText("Rooms");
+        btn_rooms.setBackground(new java.awt.Color(51, 51, 51));
+        btn_rooms.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_rooms.setForeground(new java.awt.Color(255, 255, 255));
+        btn_rooms.setText("Rooms");
+        btn_rooms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_roomsActionPerformed(evt);
+            }
+        });
 
-        jButton9.setText("Special Sessions");
+        btn_sSession.setBackground(new java.awt.Color(51, 51, 51));
+        btn_sSession.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_sSession.setForeground(new java.awt.Color(255, 255, 255));
+        btn_sSession.setText("Special Sessions");
+        btn_sSession.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_sSessionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -200,13 +250,13 @@ public class Home extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnsessions, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
-                .addComponent(jButton9)
+                .addComponent(btn_sSession)
                 .addGap(44, 44, 44)
-                .addComponent(jButton10)
+                .addComponent(btn_Unavailable_Location)
                 .addGap(39, 39, 39)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_rooms, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -214,13 +264,15 @@ public class Home extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 13, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btn_rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(btn_sSession, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnsessions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Unavailable_Location, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        Time_L.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        date_L.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        Time_L1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -229,82 +281,66 @@ public class Home extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(270, 270, 270)
-                        .addComponent(Time_L, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(HomeDesktop)))
+                        .addGap(208, 208, 208)
+                        .addComponent(Time_L1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(date_L, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(HomeDesktop))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Time_L, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Time_L1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(date_L, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(HomeDesktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(HomeDesktop)
+                        .addGap(22, 22, 22))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(40, 40, 40))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void clock()
+    void showDate() 
     {
-  
-      Thread clock = new Thread()
-      {
-          
-          public void run()
-          {
-              try
-              {
-                  
-                  while(true)
-                  {
-                  
-                      Calendar cal = new GregorianCalendar();
-                      
-                      int day = cal.get(Calendar.DAY_OF_MONTH);
-                      int month = cal.get(Calendar.MONTH)+1;
-                      int year = cal.get(Calendar.YEAR);
-                        
-                      int second = cal.get(Calendar.SECOND);
-                      int minute = cal.get(Calendar.MINUTE);
-                      int hour = cal.get(Calendar.HOUR);
-                      
-                      Time_L.setText(hour + ":" + minute + ":" + second +"     "+  year + "-" + month + "-" + day);
-                      //date.setText(day + "-" + month + "-" + year );
-                      
-                      sleep(1000);
-                  
-                  }
-              
-              
-              }catch(Exception e)
-              {
-                  
-                  JOptionPane.showMessageDialog(null, e);
-              
-              
-              }
-                  
-          
-          }
-      
-      };
-        clock.start();
-  
-  }
+
+        Date d = new Date();
+        SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
+        currentDate = s.format(d);
+        date_L.setText(currentDate);
+    }
+
+    void showTime()
+    {
+
+        new Timer(0, new ActionListener() 
+        {
+            @Override
+            public void actionPerformed(ActionEvent ae) 
+            {
+                Date d = new Date();
+                SimpleDateFormat s = new SimpleDateFormat("hh:mm:ss a");
+                currenTime = s.format(d);
+                Time_L1.setText(currenTime);
+            }
+        }).start();
+    }
+
     
     private void btnStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentsActionPerformed
        HomeDesktop.removeAll();
@@ -342,11 +378,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnWorkingDActionPerformed
 
     private void BtnLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLocationActionPerformed
-       /*HomeDesktop.removeAll();
-       Location l = new Location();
-       HomeDesktop.add(l).setVisible(true);
-       l.setSize(HomeDesktop.getWidth(), HomeDesktop.getHeight());*/
-       
+ 
        HomeDesktop.removeAll();
        locaManage lm = new locaManage();
        HomeDesktop.add(lm).setVisible(true);
@@ -356,18 +388,48 @@ public class Home extends javax.swing.JFrame {
     private void BtnStatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnStatActionPerformed
        
        HomeDesktop.removeAll();
-       Statistic2 st = new Statistic2();
+       Statistic st = new Statistic();
        HomeDesktop.add(st).setVisible(true);
        st.setSize(HomeDesktop.getWidth(), HomeDesktop.getHeight()); 
-       
-       
-       
+
        
     }//GEN-LAST:event_BtnStatActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnTimetbleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimetbleActionPerformed
        HomeDesktop.removeAll();
-    }//GEN-LAST:event_jButton8ActionPerformed
+       TimeTable tt  = new TimeTable();
+       HomeDesktop.add(tt).setVisible(true);
+       tt.setSize(HomeDesktop.getWidth(), HomeDesktop.getHeight());
+    }//GEN-LAST:event_btnTimetbleActionPerformed
+
+    private void btnsessionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsessionsActionPerformed
+        
+       HomeDesktop.removeAll();
+       Manage_Sessions se = new Manage_Sessions();
+       HomeDesktop.add(se).setVisible(true);
+       se.setSize(HomeDesktop.getWidth(), HomeDesktop.getHeight());
+    }//GEN-LAST:event_btnsessionsActionPerformed
+
+    private void btn_sSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sSessionActionPerformed
+       HomeDesktop.removeAll();
+       SpecialSession ss = new SpecialSession();
+       HomeDesktop.add(ss).setVisible(true);
+       ss.setSize(HomeDesktop.getWidth(), HomeDesktop.getHeight());
+    }//GEN-LAST:event_btn_sSessionActionPerformed
+
+    private void btn_roomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_roomsActionPerformed
+       HomeDesktop.removeAll();
+       sessionRooms sr = new sessionRooms();
+       HomeDesktop.add(sr).setVisible(true);
+       sr.setSize(HomeDesktop.getWidth(), HomeDesktop.getHeight());
+    }//GEN-LAST:event_btn_roomsActionPerformed
+
+    private void btn_Unavailable_LocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Unavailable_LocationActionPerformed
+       HomeDesktop.removeAll();
+       Sessions ss = new Sessions();
+       HomeDesktop.add(ss).setVisible(true);
+       ss.setSize(HomeDesktop.getWidth(), HomeDesktop.getHeight());
+    }//GEN-LAST:event_btn_Unavailable_LocationActionPerformed
     
     
     /**
@@ -411,17 +473,18 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton BtnLocation;
     private javax.swing.JButton BtnStat;
     public static javax.swing.JDesktopPane HomeDesktop;
-    private javax.swing.JLabel Time_L;
+    private javax.swing.JLabel Time_L1;
     private javax.swing.JButton btnLecturers;
     private javax.swing.JButton btnStudents;
     private javax.swing.JButton btnSubjects;
     private javax.swing.JButton btnTags;
+    private javax.swing.JButton btnTimetble;
     private javax.swing.JButton btnWorkingD;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton btn_Unavailable_Location;
+    private javax.swing.JButton btn_rooms;
+    private javax.swing.JButton btn_sSession;
+    private javax.swing.JButton btnsessions;
+    private javax.swing.JLabel date_L;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

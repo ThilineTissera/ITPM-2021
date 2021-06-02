@@ -5,7 +5,11 @@
  */
 package timetablemanagement;
 
+import java.sql.ResultSet;
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -26,6 +30,10 @@ public class Statistic extends javax.swing.JInternalFrame {
      */
     public Statistic() {
         initComponents();
+        
+        this.setBorder(null);
+        BasicInternalFrameUI bui = (BasicInternalFrameUI)this.getUI();
+        bui.setNorthPane(null);
     }
 
     /**
@@ -38,6 +46,7 @@ public class Statistic extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         regLec = new javax.swing.JRadioButton();
         regStud = new javax.swing.JRadioButton();
         regSub = new javax.swing.JRadioButton();
@@ -45,8 +54,8 @@ public class Statistic extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         pie = new javax.swing.JButton();
         Histogram = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        statisticTable = new javax.swing.JTable();
 
         buttonGroup1.add(regLec);
         regLec.setText("Registered lecturers");
@@ -66,6 +75,11 @@ public class Statistic extends javax.swing.JInternalFrame {
 
         buttonGroup1.add(regSub);
         regSub.setText("Registered Subjects");
+        regSub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regSubActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(regRoom);
         regRoom.setText("Registered Rooms");
@@ -89,9 +103,23 @@ public class Statistic extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        statisticTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(statisticTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,52 +127,76 @@ public class Statistic extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(regSub)
                             .addComponent(regRoom)
-                            .addComponent(regStud)
-                            .addComponent(regLec))
-                        .addGap(42, 42, 42)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(392, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(Histogram)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pie)
-                        .addGap(122, 122, 122))))
+                            .addComponent(regStud)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(regSub, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(regLec, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(Histogram, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pie, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(125, 125, 125))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(91, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pie)
-                    .addComponent(Histogram))
-                .addGap(58, 58, 58)
+                    .addComponent(Histogram, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pie, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(73, 73, 73)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(regLec)
-                        .addGap(28, 28, 28)
+                        .addGap(57, 57, 57)
                         .addComponent(regStud)
-                        .addGap(28, 28, 28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(regSub)
-                        .addGap(27, 27, 27)
+                        .addGap(56, 56, 56)
                         .addComponent(regRoom))
-                    .addComponent(jScrollPane1))
-                .addGap(79, 79, 79))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(125, 125, 125))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void regLecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regLecActionPerformed
-        // TODO add your handling code here:
+        
+        resetRows();
+        
+        try{
+          
+            ResultSet rs = DataBase.getData("SELECT Lecturer_name FROM lecturer");
+//           pst = conn.prepareStatement(sql);
+//           rs=pst.executeQuery();
+           
+ 
+           while(rs.next()){
+               String name = rs.getString("Lecturer_name");
+               String tbdata[] = {name};
+               DefaultTableModel tm = (DefaultTableModel)statisticTable.getModel();
+               tm.addRow(tbdata);
+                              
+           }
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+        
+        
     }//GEN-LAST:event_regLecActionPerformed
 
     private void regStudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regStudActionPerformed
@@ -152,7 +204,25 @@ public class Statistic extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_regStudActionPerformed
 
     private void regRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regRoomActionPerformed
-        // TODO add your handling code here:
+       
+        resetRows();
+        try{
+          
+            ResultSet rs = DataBase.getData("SELECT RoomName FROM location");
+//           pst = conn.prepareStatement(sql);
+//           rs=pst.executeQuery();
+           
+ 
+           while(rs.next()){
+               String name = rs.getString("RoomName");
+               String tbdata[] = {name};
+               DefaultTableModel tm = (DefaultTableModel)statisticTable.getModel();
+               tm.addRow(tbdata);
+                              
+           }
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
     }//GEN-LAST:event_regRoomActionPerformed
 
     private void pieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pieActionPerformed
@@ -186,17 +256,45 @@ public class Statistic extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_HistogramActionPerformed
 
+    private void regSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regSubActionPerformed
+        
+        resetRows();
+        try{
+          
+            ResultSet rs = DataBase.getData("SELECT subName FROM Subjects");
+//           pst = conn.prepareStatement(sql);
+//           rs=pst.executeQuery();
+           
+ 
+           while(rs.next()){
+               String name = rs.getString("subName");
+               String tbdata[] = {name};
+               DefaultTableModel tm = (DefaultTableModel)statisticTable.getModel();
+               tm.addRow(tbdata);
+                              
+           }
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+    }//GEN-LAST:event_regSubActionPerformed
+
+    public void resetRows()
+    {
+        DefaultTableModel model = (DefaultTableModel) statisticTable.getModel();
+        model.setRowCount(0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Histogram;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton pie;
     private javax.swing.JRadioButton regLec;
     private javax.swing.JRadioButton regRoom;
     private javax.swing.JRadioButton regStud;
     private javax.swing.JRadioButton regSub;
+    private javax.swing.JTable statisticTable;
     // End of variables declaration//GEN-END:variables
 }
